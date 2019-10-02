@@ -1,0 +1,15 @@
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\bin\Debug\01-HolaMundoWForms-VisualBasic.exe.config
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\bin\Debug\01-HolaMundoWForms-VisualBasic.exe
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\bin\Debug\01-HolaMundoWForms-VisualBasic.pdb
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\bin\Debug\01-HolaMundoWForms-VisualBasic.xml
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.vbprojAssemblyReference.cache
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\_01_HolaMundoWForms_VisualBasic.frmHolaMundo.resources
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\_01_HolaMundoWForms_VisualBasic.Resources.resources
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.vbproj.GenerateResource.cache
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.vbproj.CoreCompileInputs.cache
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.exe
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.xml
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.pdb
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\bin\Debug\Classes.dll
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\bin\Debug\Classes.pdb
+D:\DesarrolloInterfaces\01-HolaMundoWForms\01-HolaMundoWForms-VisualBasic\obj\Debug\01-HolaMundoWForms-VisualBasic.vbproj.CopyComplete

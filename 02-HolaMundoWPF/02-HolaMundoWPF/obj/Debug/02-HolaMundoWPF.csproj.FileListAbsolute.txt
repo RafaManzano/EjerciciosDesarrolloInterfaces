@@ -1,0 +1,15 @@
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\bin\Debug\02-HolaMundoWPF.exe.config
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\bin\Debug\02-HolaMundoWPF.exe
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\bin\Debug\02-HolaMundoWPF.pdb
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF.csprojAssemblyReference.cache
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\MainWindow.g.cs
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\App.g.cs
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF_MarkupCompile.cache
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF_MarkupCompile.lref
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\MainWindow.baml
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF.g.resources
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\_02_HolaMundoWPF.Properties.Resources.resources
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF.csproj.GenerateResource.cache
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF.csproj.CoreCompileInputs.cache
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF.exe
+D:\DesarrolloInterfaces\02-HolaMundoWPF\02-HolaMundoWPF\obj\Debug\02-HolaMundoWPF.pdb

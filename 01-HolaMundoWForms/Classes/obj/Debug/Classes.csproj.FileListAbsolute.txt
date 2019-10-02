@@ -1,0 +1,6 @@
+D:\DesarrolloInterfaces\01-HolaMundoWForms\Classes\bin\Debug\Classes.dll
+D:\DesarrolloInterfaces\01-HolaMundoWForms\Classes\bin\Debug\Classes.pdb
+D:\DesarrolloInterfaces\01-HolaMundoWForms\Classes\obj\Debug\Classes.csprojAssemblyReference.cache
+D:\DesarrolloInterfaces\01-HolaMundoWForms\Classes\obj\Debug\Classes.csproj.CoreCompileInputs.cache
+D:\DesarrolloInterfaces\01-HolaMundoWForms\Classes\obj\Debug\Classes.dll
+D:\DesarrolloInterfaces\01-HolaMundoWForms\Classes\obj\Debug\Classes.pdb
