@@ -43,3 +43,15 @@ D:\DesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\qualifiers
 D:\DesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\DesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\ProjectArchitectures.txt
 D:\DesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636758516200000000.json
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\03-HolaMundoUWP.csprojAssemblyReference.cache
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\App.g.i.cs
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\App.g.cs
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\MainPage.g.i.cs
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\MainPage.g.cs
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\App.xaml
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\MainPage.xaml
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\App.xbf
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\MainPage.xbf
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\XamlSaveStateFile.xml
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\03-HolaMundoUWP.exe
+C:\Users\Rafael Manzano\Documents\GitHub\EjerciciosDesarrolloInterfaces\03-HolaMundoUWP\03-HolaMundoUWP\obj\x86\Debug\03-HolaMundoUWP.pdb

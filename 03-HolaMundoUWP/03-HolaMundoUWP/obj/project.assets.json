@@ -8150,24 +8150,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rmanzano\\.nuget\\packages\\": {},
+    "C:\\Users\\Rafael Manzano\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DesarrolloInterfaces\\03-HolaMundoUWP\\03-HolaMundoUWP\\03-HolaMundoUWP.csproj",
+      "projectUniqueName": "C:\\Users\\Rafael Manzano\\Documents\\GitHub\\EjerciciosDesarrolloInterfaces\\03-HolaMundoUWP\\03-HolaMundoUWP\\03-HolaMundoUWP.csproj",
       "projectName": "03-HolaMundoUWP",
-      "projectPath": "D:\\DesarrolloInterfaces\\03-HolaMundoUWP\\03-HolaMundoUWP\\03-HolaMundoUWP.csproj",
-      "packagesPath": "C:\\Users\\rmanzano\\.nuget\\packages\\",
-      "outputPath": "D:\\DesarrolloInterfaces\\03-HolaMundoUWP\\03-HolaMundoUWP\\obj\\",
+      "projectPath": "C:\\Users\\Rafael Manzano\\Documents\\GitHub\\EjerciciosDesarrolloInterfaces\\03-HolaMundoUWP\\03-HolaMundoUWP\\03-HolaMundoUWP.csproj",
+      "packagesPath": "C:\\Users\\Rafael Manzano\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rafael Manzano\\Documents\\GitHub\\EjerciciosDesarrolloInterfaces\\03-HolaMundoUWP\\03-HolaMundoUWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\rmanzano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rafael Manzano\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
