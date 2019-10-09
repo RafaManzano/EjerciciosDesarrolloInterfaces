@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
+    <StackPanel Name ="panel">
         <Button FontFamily="Verdana" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" Width="200" BorderBrush="Yellow" FontSize="16" FontWeight="Bold" Background="Blue">Boton 1</Button>
         <Button>
             <Button.FontFamily>Verdana</Button.FontFamily>
