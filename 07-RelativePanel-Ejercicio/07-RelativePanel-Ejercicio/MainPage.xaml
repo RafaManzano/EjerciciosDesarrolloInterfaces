@@ -15,32 +15,30 @@
             <AppBarButton Icon="Download"></AppBarButton>
             <AppBarButton Icon="Find"></AppBarButton>
         </StackPanel>
-
-        <RelativePanel Name="rp" RelativePanel.Below="botonera" Width="400px" Height="400px">
-            <ScrollViewer Name="barra" VerticalScrollBarVisibility="Auto" Width="400px" Height="400px">
-                <ListView >
-                    <ListViewItem>Lorem</ListViewItem>
-                    <ListViewItem>Ipsum</ListViewItem>
-                    <ListViewItem>dummy</ListViewItem>
-                    <ListViewItem>text</ListViewItem>
-                    <ListViewItem>printing</ListViewItem>
-                    <ListViewItem>industry</ListViewItem>
-                    <ListViewItem>the</ListViewItem>
-                    <ListViewItem>typesetting</ListViewItem>
-                    <ListViewItem>been</ListViewItem>
-                    <ListViewItem>the</ListViewItem>
-                    <ListViewItem>standard</ListViewItem>
-                    <ListViewItem>simply</ListViewItem>
-                    <ListViewItem>text</ListViewItem>
-                    <ListViewItem>ever</ListViewItem>
-                    <ListViewItem>Furevah</ListViewItem>
-                </ListView>
-            </ScrollViewer>
-            <AppBarButton Icon="add" Label="Añadir" RelativePanel.AlignBottomWith="barra" RelativePanel.AlignRightWith="barra"></AppBarButton>
+        <RelativePanel Name="rp" RelativePanel.Below="botonera" RelativePanel.Above="nav">
+            <ScrollViewer Name="barra" VerticalScrollBarVisibility="Auto">
+                    <ListView Name="lista" Width="300">
+                        <ListViewItem>Lorem</ListViewItem>
+                        <ListViewItem>Ipsum</ListViewItem>
+                        <ListViewItem>dummy</ListViewItem>
+                        <ListViewItem>text</ListViewItem>
+                        <ListViewItem>printing</ListViewItem>
+                        <ListViewItem>industry</ListViewItem>
+                        <ListViewItem>the</ListViewItem>
+                        <ListViewItem>typesetting</ListViewItem>
+                        <ListViewItem>been</ListViewItem>
+                        <ListViewItem>the</ListViewItem>
+                        <ListViewItem>standard</ListViewItem>
+                        <ListViewItem>simply</ListViewItem>
+                        <ListViewItem>text</ListViewItem>
+                        <ListViewItem>ever</ListViewItem>
+                        <ListViewItem>Furevah</ListViewItem>
+                    </ListView>
+                </ScrollViewer>
+            <AppBarButton Icon="add" Label="Añadir" RelativePanel.AlignRightWith="barra" RelativePanel.AlignBottomWith="barra"></AppBarButton>
         </RelativePanel>
 
-
-        <StackPanel Orientation="Horizontal" Name="nav" RelativePanel.Below="rp" RelativePanel.AlignBottomWithPanel="True">
+        <StackPanel Orientation="Horizontal" Name="nav"  RelativePanel.AlignBottomWithPanel="True">
             <AppBarButton Icon="Back"></AppBarButton>
             <AppBarButton Icon="Forward"></AppBarButton>
         </StackPanel>
