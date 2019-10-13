@@ -13,9 +13,9 @@
         <TextBlock Text="Hola Buenos dias"/>
         <RelativePanel>
             <VariableSizedWrapGrid>
-                <Rectangle></Rectangle>
-                <Rectangle></Rectangle>
-                <Rectangle></Rectangle>
+                <Rectangle Fill="Orange"></Rectangle>
+                <Rectangle Fill="Green"></Rectangle>
+                <Rectangle Fill="Blue"></Rectangle>
             </VariableSizedWrapGrid>
         </RelativePanel>
     </RelativePanel>
