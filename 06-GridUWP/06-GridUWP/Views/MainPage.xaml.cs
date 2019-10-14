@@ -1,4 +1,4 @@
-﻿using Classes;
+﻿using _06_GridUWP.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +47,12 @@ namespace _06_GridUWP
             return bValid;
         }
         */
-
+        //TODO Acabar el summary
+        /// <summary>
+        /// El evento asociado al click del boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Enviar_Click(object sender, RoutedEventArgs e)
         {
             Boolean hacerlo = true;
@@ -81,18 +86,17 @@ namespace _06_GridUWP
             }
             else
             {
-                fechaError.Text = "";
+                if (fechaHoy.CompareTo(temp) < 0)
+                {
+                    fechaError.Text = "Fecha posterior a la fecha actual";
+                    hacerlo = false;
+                }
+                else
+                {
+                    fechaError.Text = "";
+                }
             }
 
-            if(fechaHoy.CompareTo(temp) < 0)
-            {
-                fechaError.Text = "Fecha posterior a la fecha actual";
-                hacerlo = false;
-            }
-            else
-            {
-                fechaError.Text = "";
-            }
             if (hacerlo)
             {
                 p.Nombre = nombre.Text;

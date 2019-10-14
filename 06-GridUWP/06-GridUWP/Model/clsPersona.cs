@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classes
+namespace _06_GridUWP.Model
 {
     public class clsPersona
     {
@@ -14,6 +14,15 @@ namespace Classes
         //private string primerApellido;
         //private string segundoApellido;
         //private DateTime fechaNacimiento;
+
+            /// <summary>
+            /// Constructor por defecto
+            /// </summary>
+        public clsPersona()
+        {
+            this.nombre = "Rafael";
+            this.Apellidos = "Manzano Medina";
+        }
 
         public string Nombre {
             get

@@ -9,14 +9,59 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <TextBlock Text="Hola Buenos dias"/>
-        <TextBlock Text="Hola Buenos dias"/>
-        <RelativePanel>
-            <VariableSizedWrapGrid>
-                <Rectangle Fill="Orange"></Rectangle>
-                <Rectangle Fill="Green"></Rectangle>
-                <Rectangle Fill="Blue"></Rectangle>
+        <Border BorderBrush="Black" BorderThickness="2" Name="txtBlock1"  Margin="0,0,0,15" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <TextBlock Text="Hola Buenos dias" Width="auto" Height="auto"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="2" Name="txtBlock2" Margin="0,0,0,15" RelativePanel.Below="txtBlock1" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <TextBlock Text="Hola Buenos dias" Width="auto" Height="35" />
+        </Border>
+
+        <Grid BorderBrush="Black" BorderThickness="2" Name="central" Margin="0,0,0,15" RelativePanel.Below="txtBlock2" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <VariableSizedWrapGrid Orientation="Horizontal" Name="rectangulos" Grid.Column="0">
+                <Border BorderBrush="Black" BorderThickness="2" Margin="5">
+                    <Rectangle Fill="Orange" Width="100" Height="100"></Rectangle>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2" Margin="5">
+                    <Rectangle Fill="Green" Width="100" Height="100"></Rectangle>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2" Margin="5">
+                    <Rectangle Fill="Blue" Width="100" Height="100"></Rectangle>
+                </Border>
             </VariableSizedWrapGrid>
-        </RelativePanel>
+            <!--<TextBlock Text="Hola Buenos dias" RelativePanel.RightOf="rectangulos" Name="texto"/>-->
+
+            <StackPanel Orientation="Vertical" Grid.Column="1" Name="stackPanel">
+                <Border BorderBrush="Black" BorderThickness="2" Margin="15">
+                    <TextBlock Text="Hola" Width="auto" Height="75"/>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2" Margin="15">
+                    <TextBlock Text="Hola Buenos dias" Width="auto" Height="75"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2" Margin="15">
+                    <TextBlock Text="Hola Buenos dias" Width="auto" Height="75"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2" Margin="15">
+                    <TextBlock Text="Hola Buenos dias" Width="auto" Height="75"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <!--<Border BorderBrush="Black" BorderThickness="2" Margin="15" Name="abajo" RelativePanel.Below="central" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <TextBlock Text="Hola Buenos dias"/>
+        </Border>-->
+        <Border BorderBrush="Black" BorderThickness="2" Margin="15" Name="abajo" RelativePanel.Below="central" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <TextBlock Text="Hola Buenos dias"/>
+        </Border>
+
     </RelativePanel>
 </Page>
