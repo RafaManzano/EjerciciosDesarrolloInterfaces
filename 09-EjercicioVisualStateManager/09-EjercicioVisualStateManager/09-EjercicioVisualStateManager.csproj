@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\paisaje1.jpg" />
-    <Content Include="Assets\busta.jpg" />
+    <Content Include="Assets\paisaje2.jpg" />
     <Content Include="Assets\paisaje3.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

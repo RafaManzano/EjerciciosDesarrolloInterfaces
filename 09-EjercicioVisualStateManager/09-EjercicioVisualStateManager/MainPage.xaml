@@ -11,21 +11,19 @@
     <RelativePanel>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="grande">
+                <VisualState x:Name="normal">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="600"></AdaptiveTrigger>
+                        <AdaptiveTrigger MinWindowWidth="550"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!--Posicion botones navegacion-->
-                        <Setter Target="botones.(RelativePanel.AlignLeftWithPanel)" Value="True"></Setter>
-                        <Setter Target="botones.(RelativePanel.AlignTopWithPanel)" Value="True"></Setter>
-                        <Setter Target="botones.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
-                        <Setter Target="botones.(StackPanel.Orientation)" Value="Vertical"></Setter>
-                        <!--Posicion imagenes de la Galeria-->
-                        <Setter Target="galeria.(RelativePanel.RightOf)" Value="botones"></Setter>
-                        <Setter Target="scrollGaleria.(RelativePanel.RightOf)" Value="botones"></Setter>
-                        <Setter Target="galeria.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
-                        <Setter Target="galeria.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(RelativePanel.AlignLeftWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(RelativePanel.AlignTopWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(StackPanel.Orientation)" Value="Vertical"></Setter>
+                        <Setter Target="grid.(RelativePanel.RightOf)" Value="botonera"></Setter>
+                        <Setter Target="scrollGrid.(RelativePanel.RightOf)" Value="botonera"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
                         <Setter Target="img1.(Grid.Row)" Value="0"/>
                         <Setter Target="img1.(Grid.Column)" Value="0"/>
                         <Setter Target="img2.(Grid.Row)" Value="0"/>
@@ -47,21 +45,19 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <VisualState x:Name="pequenio">
+                <VisualState x:Name="pequenho">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <!--Posicion botones-->
-                        <Setter Target="botones.(RelativePanel.Orientation)" Value="Horizontal"></Setter>
-                        <Setter Target="botones.(RelativePanel.AlignLeftWithPanel)" Value="True"></Setter>
-                        <Setter Target="botones.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
-                        <Setter Target="botones.(RelativePanel.AlignTopWithPanel)" Value="True"></Setter>
-                        <!--Posicion Imagenes-->
-                        <Setter Target="galeria.(RelativePanel.Below)" Value="botones"></Setter>
-                        <Setter Target="scrollGaleria.(RelativePanel.Below)" Value="botones"></Setter>
-                        <Setter Target="galeria.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
-                        <Setter Target="galeria.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(RelativePanel.Orientation)" Value="Horizontal"></Setter>
+                        <Setter Target="botonera.(RelativePanel.AlignLeftWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
+                        <Setter Target="botonera.(RelativePanel.AlignTopWithPanel)" Value="True"></Setter>
+                        <Setter Target="grid.(RelativePanel.Below)" Value="botonera"></Setter>
+                        <Setter Target="scrollGrid.(RelativePanel.Below)" Value="botonera"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
                         <Setter Target="img1.(Grid.Row)" Value="0"/>
                         <Setter Target="img1.(Grid.Column)" Value="0"/>
                         <Setter Target="img2.(Grid.Row)" Value="1"/>
@@ -85,17 +81,15 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <!--Panel de los botones de navegacion-->
-        <StackPanel Name="botones" Background="LightBlue">
+        <StackPanel Name="botonera" Background="LightBlue">
             <AppBarButton Icon="Add" Label="Añadir"></AppBarButton>
             <AppBarButton Icon="Go" Label="Ir"></AppBarButton>
             <AppBarButton Icon="Target" Label="Objetivo"/>
             <AppBarButton Icon="AddFriend" Label="Añadir"/>
         </StackPanel>
 
-        <!--Panel de la galeria-->
-        <ScrollViewer Name="scrollGaleria" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Height="auto">
-            <Grid Name="galeria">
+        <ScrollViewer Name="scrollGrid" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Height="auto">
+            <Grid Name="grid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -112,18 +106,16 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <!--Imagenes Galeria-->
-                <Image Name="img1" Source="Assets/busta.jpg"></Image>
-                <Image Name="img2" Source="Assets/busta.jpg"></Image>
-                <Image Name="img3" Source="Assets/busta.jpg"></Image>
-                <Image Name="img4" Source="Assets/busta.jpg"></Image>
-                <Image Name="img5" Source="Assets/busta.jpg"></Image>
-                <Image Name="img6" Source="Assets/busta.jpg"></Image>
-                <Image Name="img7" Source="Assets/busta.jpg"></Image>
-                <Image Name="img8" Source="Assets/busta.jpg"></Image>
-                <Image Name="img9" Source="Assets/busta.jpg"></Image>
+                <Image Name="img1" Source="Assets/paisaje1.jpg" Stretch="Fill"></Image>
+                <Image Name="img2" Source="Assets/paisaje2.jpg" Stretch="Fill"></Image>
+                <Image Name="img3" Source="Assets/paisaje3.jpg" Stretch="Fill"></Image>
+                <Image Name="img4" Source="Assets/paisaje2.jpg" Stretch="Fill"></Image>
+                <Image Name="img5" Source="Assets/paisaje3.jpg" Stretch="Fill"></Image>
+                <Image Name="img6" Source="Assets/paisaje1.jpg" Stretch="Fill"></Image>
+                <Image Name="img7" Source="Assets/paisaje3.jpg" Stretch="Fill"></Image>
+                <Image Name="img8" Source="Assets/paisaje1.jpg" Stretch="Fill"></Image>
+                <Image Name="img9" Source="Assets/paisaje2.jpg" Stretch="Fill"></Image>
             </Grid>
         </ScrollViewer>
-
     </RelativePanel>
 </Page>
