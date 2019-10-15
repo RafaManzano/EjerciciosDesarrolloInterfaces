@@ -1,0 +1,140 @@
+
+    <!--<RelativePanel>
+        
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState x:Name="VisualStatePequenho">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+    
+                 <!--Posicion botones navegacion-->
+            <!--<Setter Target="botonera.(RelativePanel.AlignLeftWithPanel)" Value="True"></Setter>
+            <Setter Target="botonera.(RelativePanel.AlignTopWithPanel)" Value="True"></Setter>
+            <Setter Target="botonera.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+            <Setter Target="botonera.(StackPanel.Orientation)" Value="Vertical"></Setter>-->
+            <!--Posicion imagenes de la Galeria--><!--
+            <Setter Target="galeria.(RelativePanel.RightOf)" Value="botonera"></Setter>
+            <Setter Target="scrollGaleria.(RelativePanel.RightOf)" Value="botones"></Setter>
+            <Setter Target="galeria.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+            <Setter Target="galeria.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
+            <Setter Target="img1.(Grid.Row)" Value="0"/>
+            <Setter Target="img1.(Grid.Column)" Value="0"/>
+            <Setter Target="img2.(Grid.Row)" Value="0"/>
+            <Setter Target="img2.(Grid.Column)" Value="1"/>
+            <Setter Target="img3.(Grid.Row)" Value="0"/>
+            <Setter Target="img3.(Grid.Column)" Value="2"/>
+            <Setter Target="img4.(Grid.Row)" Value="1"/>
+            <Setter Target="img4.(Grid.Column)" Value="0"/>
+            <Setter Target="img5.(Grid.Row)" Value="1"/>
+            <Setter Target="img5.(Grid.Column)" Value="1"/>
+            <Setter Target="img6.(Grid.Row)" Value="1"/>
+            <Setter Target="img6.(Grid.Column)" Value="2"/>
+            <Setter Target="img7.(Grid.Row)" Value="2"/>
+            <Setter Target="img7.(Grid.Column)" Value="0"/>
+            <Setter Target="img8.(Grid.Row)" Value="2"/>
+            <Setter Target="img8.(Grid.Column)" Value="1"/>
+            <Setter Target="img9.(Grid.Row)" Value="2"/>
+        <Setter Target="img9.(Grid.Column)" Value="2"/>     
+
+
+
+    <Setter Target="botonera.(StackPanel.Orientation)" Value="Horizontal"></Setter>
+                    <Setter Target="grid.(RelativePanel.Below)" Value="botonera"></Setter>
+                    <Setter Target="grid.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+                    <Setter Target="grid.(RelativePanel.AlignRigthWithPanel)" Value="True"></Setter>
+                    <Setter Target="img1.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img2.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img3.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img4.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img5.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img6.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img7.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img8.(Grid.Column)" Value="0"></Setter>
+                    <Setter Target="img9.(Grid.Column)" Value="0"></Setter>
+
+                    <Setter Target="img1.(Grid.Row)" Value="0"></Setter>
+                    <Setter Target="img2.(Grid.Row)" Value="1"></Setter>
+                    <Setter Target="img3.(Grid.Row)" Value="2"></Setter>
+                    <Setter Target="img4.(Grid.Row)" Value="3"></Setter>
+                    <Setter Target="img5.(Grid.Row)" Value="4"></Setter>
+                    <Setter Target="img6.(Grid.Row)" Value="5"></Setter>
+                    <Setter Target="img7.(Grid.Row)" Value="6"></Setter>
+                    <Setter Target="img8.(Grid.Row)" Value="7"></Setter>
+                    <Setter Target="img9.(Grid.Row)" Value="8"></Setter>
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="VisualStateNormal">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="550"/>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                        <Setter Target="botonera.(StackPanel.Orientation)" Value="Vertical"></Setter>
+                        <Setter Target="grid.(RelativePanel.RigthOf)" Value="botonera"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignTopWithPanel)" Value="True"></Setter>
+                        <Setter Target="grid.(RelativePanel.AlignRigthWithPanel)" Value="True"></Setter>
+                        <Setter Target="img1.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="img2.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="img3.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="img4.(Grid.Column)" Value="1"></Setter>
+                        <Setter Target="img5.(Grid.Column)" Value="1"></Setter>
+                        <Setter Target="img6.(Grid.Column)" Value="1"></Setter>
+                        <Setter Target="img7.(Grid.Column)" Value="2"></Setter>
+                        <Setter Target="img8.(Grid.Column)" Value="2"></Setter>
+                        <Setter Target="img9.(Grid.Column)" Value="2"></Setter>
+
+                        <Setter Target="img1.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="img2.(Grid.Row)" Value="1"></Setter>
+                        <Setter Target="img3.(Grid.Row)" Value="2"></Setter>
+                        <Setter Target="img4.(Grid.Row)" Value="2"></Setter>
+                        <Setter Target="img5.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="img6.(Grid.Row)" Value="2"></Setter>
+                        <Setter Target="img7.(Grid.Row)" Value="1"></Setter>
+                        <Setter Target="img8.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="img9.(Grid.Row)" Value="2"></Setter>
+                    </VisualState.Setters>-->
+                    <!--Orientation="Vertical"-->
+                    <!--RelativePanel.RightOf="botonera" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True"--><!--
+                </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+    
+        <StackPanel  RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Name="botonera">
+            <AppBarButton Icon="Add" Label="Añadir"></AppBarButton>
+            <AppBarButton Icon="Go" Label="Ir"></AppBarButton>
+            <AppBarButton Icon="Target" Label="Objetivo"></AppBarButton>
+            <AppBarButton Icon="AddFriend" Label="Añadir"></AppBarButton>
+        </StackPanel>
+        
+        <Grid Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="Assets/paisaje1.jpg" Stretch="Fill" Name="img1"></Image>
+            <Image Source="Assets/paisaje2.jpg" Stretch="Fill" Name="img2"></Image>
+            <Image Source="Assets/paisaje3.jpg" Stretch="Fill" Name="img3"></Image>
+            <Image Source="Assets/paisaje3.jpg" Stretch="Fill" Name="img4"></Image>
+            <Image Source="Assets/paisaje1.jpg" Stretch="Fill" Name="img5"></Image>
+            <Image Source="Assets/paisaje2.jpg" Stretch="Fill" Name="img6"></Image>
+            <Image Source="Assets/paisaje2.jpg" Stretch="Fill" Name="img7"></Image>
+            <Image Source="Assets/paisaje3.jpg" Stretch="Fill" Name="img8"></Image>
+            <Image Source="Assets/paisaje1.jpg" Stretch="Fill" Name="img9"></Image>
+        </Grid>
+    </RelativePanel>-->
