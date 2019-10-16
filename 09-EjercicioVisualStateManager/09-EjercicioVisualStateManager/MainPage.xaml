@@ -59,23 +59,23 @@
                         <Setter Target="grid.(RelativePanel.AlignBottomWithPanel)" Value="True"></Setter>
                         <Setter Target="grid.(RelativePanel.AlignRightWithPanel)" Value="True"></Setter>
                         <Setter Target="img1.(Grid.Row)" Value="0"/>
-                        <Setter Target="img1.(Grid.Column)" Value="0"/>
+                        <Setter Target="img1.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img2.(Grid.Row)" Value="1"/>
-                        <Setter Target="img2.(Grid.Column)" Value="0"/>
+                        <Setter Target="img2.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img3.(Grid.Row)" Value="2"/>
-                        <Setter Target="img3.(Grid.Column)" Value="0"/>
+                        <Setter Target="img3.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img4.(Grid.Row)" Value="3"/>
-                        <Setter Target="img4.(Grid.Column)" Value="0"/>
+                        <Setter Target="img4.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img5.(Grid.Row)" Value="4"/>
-                        <Setter Target="img5.(Grid.Column)" Value="0"/>
+                        <Setter Target="img5.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img6.(Grid.Row)" Value="5"/>
-                        <Setter Target="img6.(Grid.Column)" Value="0"/>
+                        <Setter Target="img6.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img7.(Grid.Row)" Value="6"/>
-                        <Setter Target="img7.(Grid.Column)" Value="0"/>
+                        <Setter Target="img7.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img8.(Grid.Row)" Value="7"/>
-                        <Setter Target="img8.(Grid.Column)" Value="0"/>
+                        <Setter Target="img8.(Grid.ColumnSpan)" Value="2"/>
                         <Setter Target="img9.(Grid.Row)" Value="8"/>
-                        <Setter Target="img9.(Grid.Column)" Value="0"/>
+                        <Setter Target="img9.(Grid.ColumnSpan)" Value="2"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
