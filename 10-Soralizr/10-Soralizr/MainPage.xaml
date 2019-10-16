@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="_10_Soralizr.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_10_Soralizr"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <!--<AppBarButton Name="atras" Icon="Forward" Label="Atras" RelativePanel.AlignLeftWithPanel="True"></AppBarButton>-->
+        <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontSize="60dp" HorizontalAlignment="Center" Text="Notas" Name="titulo"></TextBlock>
+        <TextBlock Name="hora" RelativePanel.Below="titulo" Text="10:05" RelativePanel.AlignLeftWithPanel="True" FontSize="25dp"></TextBlock>
+        <TextBlock Name="nombreInstalacion" RelativePanel.Below="titulo" Text="Instalacion Panel Solar" RelativePanel.AlignRightWithPanel="True" FontSize="25dp"></TextBlock>
+        <TextBlock Name="calle" RelativePanel.Below="nombreInstalacion" Text="Mi casa nº99 CP: 47008" RelativePanel.AlignRightWithPanel="True" FontSize="25dp"></TextBlock>
+        <TextBlock Name="observaciones" RelativePanel.Below="calle" Text="OBSERVACIONES:" RelativePanel.AlignLeftWithPanel="True" FontSize="35dp"></TextBlock>
+        <TextBox Name="cuadroObs" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="observaciones" RelativePanel.AlignBottomWith="adjuntar"></TextBox>
+        <AppBarButton Icon="Attach" Label="Adjuntar" Name="adjuntar" RelativePanel.AlignBottomWithPanel="True"></AppBarButton>
+        <Button Name="enviar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="cuadroObs">Enviar</Button>
+        <!--Da problemas revisar e intentar mejorar todo-->
+    </RelativePanel>
+</Page>
