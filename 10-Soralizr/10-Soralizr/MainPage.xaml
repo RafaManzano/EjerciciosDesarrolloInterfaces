@@ -7,17 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <RelativePanel>
+    <RelativePanel Background="Aqua">
+    <TextBlock FontSize="60dp" HorizontalAlignment="Center" Text="Notas" Name="titulo" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" ></TextBlock>
+        
+    <RelativePanel Background="White" RelativePanel.Below="titulo" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="15" RelativePanel.AlignBottomWithPanel="True" CornerRadius="20">
         <!--<AppBarButton Name="atras" Icon="Forward" Label="Atras" RelativePanel.AlignLeftWithPanel="True"></AppBarButton>-->
-        <TextBlock RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontSize="60dp" HorizontalAlignment="Center" Text="Notas" Name="titulo"></TextBlock>
-        <TextBlock Name="hora" RelativePanel.Below="titulo" Text="10:05" RelativePanel.AlignLeftWithPanel="True" FontSize="25dp"></TextBlock>
-        <TextBlock Name="nombreInstalacion" RelativePanel.Below="titulo" Text="Instalacion Panel Solar" RelativePanel.AlignRightWithPanel="True" FontSize="25dp"></TextBlock>
-        <TextBlock Name="calle" RelativePanel.Below="nombreInstalacion" Text="Mi casa nº99 CP: 47008" RelativePanel.AlignRightWithPanel="True" FontSize="25dp"></TextBlock>
-        <TextBlock Name="observaciones" RelativePanel.Below="calle" Text="OBSERVACIONES:" RelativePanel.AlignLeftWithPanel="True" FontSize="35dp"></TextBlock>
-        <TextBox Name="cuadroObs" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="observaciones" RelativePanel.AlignBottomWith="adjuntar"></TextBox>
-        <AppBarButton Icon="Attach" Label="Adjuntar" Name="adjuntar" RelativePanel.AlignBottomWithPanel="True"></AppBarButton>
-        <Button Name="enviar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="cuadroObs">Enviar</Button>
-        <!--Da problemas revisar e intentar mejorar todo-->
+        <TextBlock Name="hora" Text="10:05" RelativePanel.AlignLeftWithPanel="True" FontSize="25dp" Margin="20"></TextBlock>
+        <TextBlock Name="nombreInstalacion"  Margin="20" Text="Instalacion Panel Solar" RelativePanel.AlignRightWithPanel="True" FontSize="25dp"></TextBlock>
+        <TextBlock Name="calle"  Margin="20" RelativePanel.Below="nombreInstalacion" Text="Mi casa nº99 CP: 47008" RelativePanel.AlignRightWithPanel="True" FontSize="25dp"></TextBlock>
+        <TextBlock Name="observaciones"  Margin="20" RelativePanel.Below="calle" Text="OBSERVACIONES:" RelativePanel.AlignLeftWithPanel="True" FontSize="35dp"></TextBlock>
+        <TextBox Name="cuadroObs" RelativePanel.AlignLeftWithPanel="True"  Margin="20" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="observaciones" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" MinHeight="30" MaxHeight="40"></TextBox>
+        <AppBarButton Icon="Attach" Label="Adjuntar" Name="adjuntar" RelativePanel.Above="enviar"  Margin="20"></AppBarButton>
+        <Button Name="enviar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True"  Margin="20" >Enviar</Button>
+        <!--Mejorar la interfaz con bordes y toda la pesca-->
+    </RelativePanel>
     </RelativePanel>
 </Page>
