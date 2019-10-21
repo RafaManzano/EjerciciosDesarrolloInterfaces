@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
@@ -26,7 +27,37 @@ namespace _10_Soralizr
         public MainPage()
         {
             this.InitializeComponent();
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 1400, Height = 1400 });
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 2000, Height = 2000 });
+            
+
+        }
+
+        private async void Adjuntar_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                var picker = new Windows.Storage.Pickers.FileOpenPicker();
+                picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+                picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+                picker.FileTypeFilter.Add(".jpg");
+                picker.FileTypeFilter.Add(".jpeg");
+                picker.FileTypeFilter.Add(".png");
+                var files = await picker.PickMultipleFilesAsync();
+                if (files.Count > 0)
+                {
+                    StringBuilder output = new StringBuilder("Picked files:\n");
+
+                    // Application now has read/write access to the picked file(s)
+                    foreach (Windows.Storage.StorageFile file in files)
+                    {
+                        output.Append(file.Name + "\n");
+                    }
+                    //this.textBlock.Text = output.ToString();
+                }
+                else
+                {
+                    //this.textBlock.Text = "Operation cancelled.";
+                }
+            }
         }
     }
 }
