@@ -70,9 +70,44 @@
             </PivotItem>
         </Pivot>
 
-        <TextBox Grid.Row="1" IsSpellCheckEnabled="True"></TextBox>
-        
+        <TextBox Grid.Row="1" IsSpellCheckEnabled="True" AcceptsReturn="True"></TextBox>
 
+        <PasswordBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1"/>
+
+        
+        <ListBox Grid.Row="1" Grid.Column="2">
+            <ListBoxItem Content="Green"></ListBoxItem>
+            <ListBoxItem Content="Blue"></ListBoxItem>
+            <ListBoxItem Content="Yellow"></ListBoxItem>
+            <ListBoxItem Content="Red"></ListBoxItem>
+            <ListBoxItem Content="Gray"></ListBoxItem>
+            <ListBoxItem Content="Black"></ListBoxItem>
+            <ListBoxItem Content="White"></ListBoxItem>
+            <ListBoxItem Content="Brown"></ListBoxItem>
+        </ListBox>
+
+       
+        <ComboBox PlaceholderText="Buenas" Grid.Row="2" Grid.Column="0">
+            <ComboBoxItem Content="Noches"></ComboBoxItem>
+            <ComboBoxItem Content="Hasta"></ComboBoxItem>
+            <ComboBoxItem Content="Mañana"></ComboBoxItem>
+            <ComboBoxItem Content="Los"></ComboBoxItem>
+            <ComboBoxItem Content="Lunnis"></ComboBoxItem>
+            <ComboBoxItem Content="Y"></ComboBoxItem>
+            <ComboBoxItem Content="Los"></ComboBoxItem>
+            <ComboBoxItem Content="Niños"></ComboBoxItem>
+        </ComboBox>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+            <Slider Name="sld1" TickFrequency="10" Margin="5"></Slider>
+            <ProgressBar Value="{Binding ElementName=sld1, Path=Value, Mode=TwoWay}" Height="25" Width="400" HorizontalAlignment="Right" Margin="5"></ProgressBar>
+        </StackPanel>
+
+        <CalendarView Grid.Row="2" Grid.Column="3"></CalendarView>
+
+        <CalendarDatePicker Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center"></CalendarDatePicker>
+
+        <DatePicker Grid.Row="3" Grid.Column="1"></DatePicker>
 
     </Grid>
 </Page>
