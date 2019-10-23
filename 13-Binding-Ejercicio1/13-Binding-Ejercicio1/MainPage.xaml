@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="_13_Binding_Ejercicio1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_13_Binding_Ejercicio1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <Slider x:Name="tamanho" Header="Tamanho de la letra" Width="200" Margin="10" Minimum="5" Maximum="50"/>
+        <TextBlock Name="texto" Text="Hola Mundo" RelativePanel.Below="tamanho" FontSize="{Binding ElementName=tamanho, Path=Value}"></TextBlock>
+        <TextBox Name ="soloNumeros" Text="{Binding ElementName=tamanho, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RelativePanel.Below="texto" TextChanging="SoloNumeros_OnTextChanging"></TextBox>
+    </RelativePanel>
+</Page>
