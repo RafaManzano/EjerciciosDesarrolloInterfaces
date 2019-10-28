@@ -11,9 +11,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
         <model:clsPersona/>
-
-
-
     </Page.DataContext>
     <Grid>
         <StackPanel Orientation="Vertical">
