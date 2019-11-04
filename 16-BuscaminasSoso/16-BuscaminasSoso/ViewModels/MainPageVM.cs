@@ -44,6 +44,7 @@ namespace _16_BuscaminasSoso.ViewModels
                 //casillaSeleccionada.YaPulsada = true;
                 if (casillaSeleccionada != null)
                 {
+                    casillaSeleccionada.YaPulsada = true;
                     comprobarCasilla();
                 }
             }
@@ -51,7 +52,7 @@ namespace _16_BuscaminasSoso.ViewModels
 
         public async void comprobarCasilla()
         {
-            casillaSeleccionada.YaPulsada = true;
+            //casillaSeleccionada.YaPulsada = true;
             if (casillaSeleccionada.IsBomba)
                 {
                     //casillaSeleccionada.YaPulsada = true;

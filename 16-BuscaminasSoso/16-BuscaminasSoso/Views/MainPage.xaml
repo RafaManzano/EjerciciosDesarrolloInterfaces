@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <RelativePanel>
-        <GridView RelativePanel.AlignLeftWithPanel="True" ItemsSource="{Binding Listado}" SelectedItem="{Binding CasillaSeleccionada, Mode=TwoWay}">
+        <GridView RelativePanel.AlignLeftWithPanel="True" ItemsSource="{Binding Listado}" SelectedItem="{Binding CasillaSeleccionada, Mode=TwoWay}" Width="1000">
             <GridView.ItemTemplate>
                 <DataTemplate x:Name="datos" >
                     <Image Source="{Binding Path=Imagen}" Width="200" Height="200"></Image>

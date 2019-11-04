@@ -15,7 +15,7 @@ namespace _16_BuscaminasSoso.Models
         private Boolean yaPulsada;
         public clsCasilla()
         {
-            imagen = new Uri("ms-appx:///Assets/cda.png");
+            imagen = new Uri("ms-appx:///Assets/cda.jpg");
             IsBomba = false;
         }
 
@@ -34,19 +34,20 @@ namespace _16_BuscaminasSoso.Models
             }
             set
             {
-                isBomba = IsBomba;
+                isBomba = value;
             }
         }
         public Boolean YaPulsada
         {
             get
             {
-                //NotifyPropertyChanged();
+                //NotifyPropertyChanged("Imagen");
                 return yaPulsada;
             }
             set
             {
-                yaPulsada = YaPulsada;
+                yaPulsada = value;
+                NotifyPropertyChanged("Imagen");
             }
         }
 
@@ -56,12 +57,12 @@ namespace _16_BuscaminasSoso.Models
             {
                 if (IsBomba == true)
                 {
-                    imagen = new Uri("ms-appx:///Assets/bombazo.png");
+                    imagen = new Uri("ms-appx:///Assets/fallo.png");
                     //NotifyPropertyChanged("Imagen");
                 }
                 else
                 {
-                    imagen = new Uri("ms-appx:///Assets/aguazo.png");
+                    imagen = new Uri("ms-appx:///Assets/acierto.png");
                 }
             }
             

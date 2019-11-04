@@ -134,9 +134,9 @@
     <None Include="16-BuscaminasSoso_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\aguazo.png" />
-    <Content Include="Assets\bombazo.png" />
-    <Content Include="Assets\cda.png" />
+    <Content Include="Assets\acierto.png" />
+    <Content Include="Assets\cda.jpg" />
+    <Content Include="Assets\fallo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
