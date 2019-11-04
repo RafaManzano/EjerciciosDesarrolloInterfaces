@@ -10,27 +10,6 @@ namespace _16_BuscaminasSoso.Utiles
 {
     class clsListados
     {
-        public static List<Object> listadoJuego() {
-            Random rnd = new Random();
-            int bomba = 0;
-            int repeticiones = 0;
-            List<Object> list = null;
-            for(int i = 0; i < 16; i++)
-            {
-                bomba = rnd.Next(1);
-                if(bomba == 0)
-                {
-                    list.Add(new clsBomba());
-                    repeticiones++;
-                }
-                else
-                {
-                    list.Add(new clsFallo());
-                }
-            }
-            return list;
-        }
-
         public static int intercambiarLetraPorNumero(object sender)
         {
             int numero = 0;
@@ -117,8 +96,7 @@ namespace _16_BuscaminasSoso.Utiles
             for(int i = 0; i < 5; i++)
             {
                 numero = rnd.Next(16);
-                list.RemoveAt(numero);
-                list.Insert(numero, new clsCasilla(2, new Uri("ms-appx:///Assets/cda.png"), true));
+                list.FindIndex(numero, a => a.IsBomba = true);
             }
             return list;
         }

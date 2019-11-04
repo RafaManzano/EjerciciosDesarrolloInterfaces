@@ -119,9 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\clsBomba.cs" />
     <Compile Include="Models\clsCasilla.cs" />
-    <Compile Include="Models\clsFallo.cs" />
     <Compile Include="Utiles\clsListados.cs" />
     <Compile Include="ViewModels\MainPageVM.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
