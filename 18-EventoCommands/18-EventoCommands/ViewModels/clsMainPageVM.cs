@@ -19,7 +19,7 @@ namespace _18_EventoCommands.ViewModels
         public clsMainPageVM()
         {
             this.listadoPersona = clsListadosPersonas.listadoPersonas();
-            //eliminarComando = new DelegateCommand(Eliminar);
+            eliminarComando = new DelegateCommand(Eliminar, () => false);
         }
 
         public clsPersona PersonaSeleccionada
@@ -31,6 +31,7 @@ namespace _18_EventoCommands.ViewModels
             set
             {
                 this.personaSeleccionada = value;
+                //eliminarComando.CanExecute(personaSeleccionada);
             }
         }
 
@@ -48,13 +49,15 @@ namespace _18_EventoCommands.ViewModels
 
         }
 
+
         public DelegateCommand EliminarComando
         {
             get
             {
-                //return eliminarComando = new DelegateCommand(new Action(Eliminar()));
+                return eliminarComando;
             }
         }
+        
 
         public void Eliminar()
         {

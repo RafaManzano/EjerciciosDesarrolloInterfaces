@@ -14,7 +14,7 @@
     </Page.DataContext>
     
     <RelativePanel>
-        <AppBarButton Icon="Delete" Label="Eliminar" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="borrar"/>
+        <AppBarButton Icon="Delete" Label="Eliminar" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="borrar" Command="{Binding EliminarComando}"/>
         <AppBarButton Icon="Find" Label="Buscar" RelativePanel.AlignRightWithPanel="True" Name="lupa"  ></AppBarButton>
         <TextBox RelativePanel.LeftOf="lupa" Name="tbBuscar"  Margin="10"></TextBox>
         <TextBlock RelativePanel.LeftOf="tbBuscar" Text="Buscar: " Margin="10,15,0,0"></TextBlock>
