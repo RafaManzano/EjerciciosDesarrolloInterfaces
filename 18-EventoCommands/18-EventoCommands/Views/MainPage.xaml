@@ -15,10 +15,10 @@
     
     <RelativePanel>
         <AppBarButton Icon="Delete" Label="Eliminar" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="borrar" Command="{Binding EliminarComando}"/>
-        <AppBarButton Icon="Find" Label="Buscar" RelativePanel.AlignRightWithPanel="True" Name="lupa"  ></AppBarButton>
-        <TextBox RelativePanel.LeftOf="lupa" Name="tbBuscar"  Margin="10"></TextBox>
+        <AppBarButton Icon="Find" Label="Buscar" RelativePanel.AlignRightWithPanel="True" Name="lupa" Command="{Binding FiltrarComando}"></AppBarButton>
+        <TextBox RelativePanel.LeftOf="lupa" Name="tbBuscar"  Margin="10" Text="{Binding TextoBuscado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <TextBlock RelativePanel.LeftOf="tbBuscar" Text="Buscar: " Margin="10,15,0,0"></TextBlock>
-        <ListView SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersona, Mode=TwoWay}" Name="listView" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="borrar">
+        <ListView SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaFiltrada, Mode=TwoWay}" Name="listView" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="borrar">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
