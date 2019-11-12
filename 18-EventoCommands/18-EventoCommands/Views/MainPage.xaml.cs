@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _18_EventoCommands.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,5 +27,14 @@ namespace _18_EventoCommands
         {
             this.InitializeComponent();
         }
+
+        private void ListaElementos_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            ListView listView = (ListView)sender;
+            menuFlyout.ShowAt(listView, e.GetPosition(listView));
+            clsPersona persona = (clsPersona)((FrameworkElement)e.OriginalSource).DataContext;
+            this.listView.SelectedItem = persona;
+        }
+
     }
 }

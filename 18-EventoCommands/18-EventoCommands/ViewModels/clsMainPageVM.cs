@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace _18_EventoCommands.ViewModels
 {
@@ -83,9 +84,21 @@ namespace _18_EventoCommands.ViewModels
         }
 
 
-        public void Eliminar()
+        public async void Eliminar()
         {
-            listadoPersonaCompleta.Remove(personaSeleccionada);
+            ContentDialog subscribeDialog = new ContentDialog
+            {
+                Title = "¿Estas seguro que quiere eliminar?",
+                PrimaryButtonText = "Aceptar",
+                SecondaryButtonText = "Cancelar",
+                DefaultButton = ContentDialogButton.Secondary
+            };
+
+            ContentDialogResult result = await subscribeDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                listadoPersonaFiltrada.Remove(personaSeleccionada);
+            }
         }
 
         public void Filtrar()

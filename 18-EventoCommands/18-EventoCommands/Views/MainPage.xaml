@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:_18_EventoCommands.ViewModels"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -14,11 +15,21 @@
     </Page.DataContext>
     
     <RelativePanel>
-        <AppBarButton Icon="Delete" Label="Eliminar" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Name="borrar" Command="{Binding EliminarComando}"/>
+        <Windows10version1809:MenuBar VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" Name="MenuBar">
+            <MenuBarItem Title="Editar">
+                <MenuFlyoutItem Text="Delete" Icon="Delete" Command="{Binding EliminarComando}"></MenuFlyoutItem>
+            </MenuBarItem>
+        </Windows10version1809:MenuBar>
+        <AppBarButton Icon="Delete" Label="Eliminar" RelativePanel.Below="MenuBar" RelativePanel.AlignLeftWithPanel="True" Name="borrar" Command="{Binding EliminarComando}"/>
         <AppBarButton Icon="Find" Label="Buscar" RelativePanel.AlignRightWithPanel="True" Name="lupa" Command="{Binding FiltrarComando}"></AppBarButton>
         <TextBox RelativePanel.LeftOf="lupa" Name="tbBuscar"  Margin="10" Text="{Binding TextoBuscado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <TextBlock RelativePanel.LeftOf="tbBuscar" Text="Buscar: " Margin="10,15,0,0"></TextBlock>
-        <ListView SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaFiltrada, Mode=TwoWay}" Name="listView" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="borrar">
+        <ListView SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaFiltrada, Mode=TwoWay}" Name="listView" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="borrar" RightTapped="ListaElementos_RightTapped">
+            <FlyoutBase.AttachedFlyout>
+            <MenuFlyout x:Name="menuFlyout">
+                    <MenuFlyoutItem Icon="Delete" Text="Delete"  Command="{Binding EliminarComando}"   />
+            </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
