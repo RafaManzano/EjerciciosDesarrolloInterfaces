@@ -34,12 +34,12 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Connection
         public clsMyConnection()
         {
             // this.server = "(local)";
-            this.server = "iesnervion.database.windows.net";
+            this.server = "rafamanzano.database.windows.net";
 
-            this.dataBase = "WPFSample";
-            this.user = "prueba";
+            this.dataBase = "Personas";
+            this.user = "rmanzano";
             //this.pass = "123";
-            this.pass = "iesnervion123.";
+            this.pass = "MiTesoro.";
 
         }
         //Con parámetros por si quisiera cambiar las conexiones

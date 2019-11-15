@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModelViews\DelegateCommand.cs" />
+    <Compile Include="ModelViews\MainPageVM.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -155,9 +157,7 @@
       <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModelViews\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\19-CRUDPersonasCompletoUWP-BL\19-CRUDPersonasCompletoUWP-BL.csproj">
       <Project>{05802594-704b-408c-aebc-6fd27965396f}</Project>

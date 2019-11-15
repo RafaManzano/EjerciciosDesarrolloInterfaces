@@ -121,6 +121,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="clsDepartamento.cs" />
     <Compile Include="clsPersona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\_19_CRUDPersonasCompletoUWP_Entities.rd.xml" />

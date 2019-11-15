@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:vm="using:_19_CRUDPersonasCompletoUWP_UI.ModelViews"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!--<Page.DataContext>
-        <vm:clsMainPageVM></vm:clsMainPageVM>
-    </Page.DataContext>-->
+    <Page.DataContext>
+        <vm:MainPageVM></vm:MainPageVM>
+    </Page.DataContext>
 
     <RelativePanel>
         <Windows10version1809:MenuBar VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" Name="MenuBar">
@@ -31,7 +32,7 @@
         <TextBlock Name="Buscar" RelativePanel.LeftOf="tbBuscar" Margin="10,15,10,10">Buscar: </TextBlock>
         <TextBox Name="tbBuscar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="10,10,20,0"></TextBox>
 
-        <ListView RelativePanel.AlignLeftWithPanel="True" SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersona}" Name="listView" RelativePanel.Below="botonera">
+        <ListView RelativePanel.AlignLeftWithPanel="True" SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaCompleta}" Name="listView" RelativePanel.Below="botonera">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -42,7 +43,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Grid Margin="10,0,0,0" Name="grid" Background="Beige" RelativePanel.Below="botonera">
+        <Grid Margin="10,0,0,0" Name="grid" Background="Beige" RelativePanel.Below="botonera" RelativePanel.RightOf="listView">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
