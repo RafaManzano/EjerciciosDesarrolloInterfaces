@@ -17,22 +17,23 @@
     <RelativePanel>
         <Windows10version1809:MenuBar VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" Name="MenuBar">
             <MenuBarItem Title="Acciones">
-                <MenuFlyoutItem Text="Refrescar" Icon="Refresh" Command="{Binding EliminarComando}"></MenuFlyoutItem>
-                <MenuFlyoutItem Text="Guardar" Icon="Save" Command="{Binding EliminarComando}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Nuevo" Icon="Add" Command="{Binding NewCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Refrescar" Icon="Refresh" Command="{Binding RecargarCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Guardar" Icon="Save" Command="{Binding GuardarComando}"></MenuFlyoutItem>
                 <MenuFlyoutItem Text="Eliminar" Icon="Delete" Command="{Binding EliminarComando}"></MenuFlyoutItem>
             </MenuBarItem>
         </Windows10version1809:MenuBar>
         
         <StackPanel Orientation="Horizontal" Name="botonera" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="MenuBar">
-            <AppBarButton Icon="Add" Label="Crear"></AppBarButton>
-            <AppBarButton Icon="Refresh" Label="Recargar"></AppBarButton>
-            <AppBarButton Icon="Delete" Label="Eliminar"></AppBarButton>
+            <AppBarButton Icon="Add" Label="Nuevo" Command="{Binding NewCommand}"></AppBarButton>
+            <AppBarButton Icon="Refresh" Label="Refrescar" Command="{Binding RecargarCommand}"></AppBarButton>
+            <AppBarButton Icon="Delete" Label="Eliminar" Command="{Binding EliminarComando}"></AppBarButton>
         </StackPanel>
 
         <TextBlock Name="Buscar" RelativePanel.LeftOf="tbBuscar" Margin="10,15,10,10">Buscar: </TextBlock>
-        <TextBox Name="tbBuscar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="10,10,20,0"></TextBox>
+        <TextBox Name="tbBuscar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="10,10,20,0" Text="{Binding TextoBuscado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
-        <ListView RelativePanel.AlignLeftWithPanel="True" SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaCompleta}" Name="listView" RelativePanel.Below="botonera">
+        <ListView RelativePanel.AlignLeftWithPanel="True" SelectedItem="{Binding PersonaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding ListadoPersonaFiltrada, Mode=TwoWay}" Name="listView" RelativePanel.Below="botonera">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -64,17 +65,24 @@
             <TextBlock Name="FechaNacimiento" Grid.Row="2" Margin="10">Fecha de Nacimiento:</TextBlock>
             <TextBox Name="tbFechaNacimiento" Grid.Column="2" Grid.Row="2" Margin="10" Text="{Binding PersonaSeleccionada.FechaNacimiento,Mode=TwoWay}"></TextBox>
             <TextBlock Name="IDDepartamento" Grid.Row="3" Margin="10">Departamento:</TextBlock>
-            <TextBox Name="tbDepartamento" Grid.Column="2" Grid.Row="3" Margin="10" Text="{Binding PersonaSeleccionada.IDDepartamento,Mode=TwoWay}"></TextBox>
+            <!--<TextBox Name="tbDepartamento" Grid.Column="2" Grid.Row="3" Margin="10" Text="{Binding PersonaSeleccionada.IDDepartamento,Mode=TwoWay}"></TextBox>-->
+            <ComboBox Name="combo" ItemsSource="{Binding ListadoDepartamentos, Mode=TwoWay}" Grid.Column="2" Grid.Row="3">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Name="nombreDpto" Text="{Binding Path=Nombre}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <TextBlock Name="Telefono" Grid.Row="4" Margin="10">Telefono:</TextBlock>
             <TextBox Name="tbTelefono" Grid.Column="2" Grid.Row="4" Margin="10" Text="{Binding PersonaSeleccionada.Telefono,Mode=TwoWay}"></TextBox>
-            <TextBlock Name="Foto" Grid.Row="5" Margin="10">Telefono:</TextBlock>
+            <TextBlock Name="Foto" Grid.Row="5" Margin="10">Foto:</TextBlock>
             <TextBox Name="tbFoto" Grid.Column="2" Grid.Row="5" Margin="10" Text="{Binding PersonaSeleccionada.Foto,Mode=TwoWay}"></TextBox>
         </Grid>
 
         <StackPanel Orientation="Horizontal" Name="debajoBotones" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="grid"
                      Margin="0,20,0,0">
-            <AppBarButton Icon="Save" Label="Guardar"></AppBarButton>
-            <AppBarButton Icon="Delete" Label="Eliminar"></AppBarButton>
+            <AppBarButton Icon="Save" Label="Guardar" Command="{Binding GuardarComando}"></AppBarButton>
+            <AppBarButton Icon="Delete" Label="Eliminar" Command="{Binding EliminarComando}" Name="eliminar"></AppBarButton>
         </StackPanel>
     </RelativePanel>
 </Page>

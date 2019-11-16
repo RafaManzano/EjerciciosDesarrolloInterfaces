@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
 {
-    public class DelegateCommand
+    public class DelegateCommand : ICommand
     {
         private readonly Action _execute;
 

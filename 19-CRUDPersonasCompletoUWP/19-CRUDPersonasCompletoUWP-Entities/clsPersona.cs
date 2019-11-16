@@ -15,14 +15,14 @@ public class clsPersona
 
     public clsPersona()
     {
-        IDPersona = 0;
-        nombre = "VACIO";
-        Apellidos = "VACIO";
-        FechaNacimiento = DateTime.Now;
-        IDDepartamento = 0;
-        Foto = new Byte[20];
-        Telefono = "";
-        Direccion = "";
+        //IDPersona = 0;
+        //nombre = "VACIO";
+        //Apellidos = "VACIO";
+        //FechaNacimiento = "";
+        //IDDepartamento = 0;
+        //Foto = "";
+        //Telefono = "";
+        //Direccion = "";
     }
 
     public clsPersona(int id, string nombre, string apellidos, DateTime fecha, int idDepartamento, Byte[] foto, string telefono, string direccion)

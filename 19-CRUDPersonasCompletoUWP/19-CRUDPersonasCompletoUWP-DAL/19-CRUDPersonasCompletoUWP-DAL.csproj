@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Connection\clsMyConnection.cs" />
+    <Compile Include="Handlers\clsManejadoras.cs" />
     <Compile Include="Lists\clsListadoPersonasDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\_19_CRUDPersonasCompletoUWP_DAL.rd.xml" />
@@ -137,9 +138,7 @@
       <Name>19-CRUDPersonasCompletoUWP-Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

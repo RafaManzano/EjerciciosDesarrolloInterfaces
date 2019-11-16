@@ -1,4 +1,5 @@
 ﻿using _19_CRUDPersonasCompletoUWP_BL.Lists;
+using _19_CRUDPersonasCompletoUWP_Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,9 +17,12 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
         private ObservableCollection<clsPersona> listadoPersonaCompleta;
         private DelegateCommand eliminarComando;
         private DelegateCommand filtrarComando;
+        private DelegateCommand newCommand;
         private DelegateCommand recargarComando;
+        private DelegateCommand guardarComando;
         private ObservableCollection<clsPersona> listadoPersonaFiltrada;
         private String textoBuscado;
+        private ObservableCollection<clsDepartamento> dpto;
         private clsListadoPersonasBL bbdd = new clsListadoPersonasBL();
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,9 +35,13 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
         public MainPageVM()
         {
             this.listadoPersonaCompleta = new ObservableCollection<clsPersona>(bbdd.listadoPersonas());
-            //this.listadoPersonaFiltrada = bbdd.listadoPersonas();
+            this.listadoPersonaFiltrada = this.listadoPersonaCompleta;
             eliminarComando = new DelegateCommand(Eliminar, () => personaSeleccionada != null);
             filtrarComando = new DelegateCommand(Filtrar, () => !String.IsNullOrEmpty(textoBuscado));
+            recargarComando = new DelegateCommand(Recargar);
+            newCommand = new DelegateCommand(Nuevo);
+            guardarComando = new DelegateCommand(Guardar, () => personaSeleccionada != null);
+            this.dpto = new ObservableCollection<clsDepartamento>(bbdd.listadoDepartamentos());
         }
 
         public clsPersona PersonaSeleccionada
@@ -46,9 +54,10 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
             set
             {
                 this.personaSeleccionada = value;
+                eliminarComando.RaiseCanExecuteChanged();
+                eliminarComando.CanExecute(personaSeleccionada);
                 NotifyPropertyChanged("PersonaSeleccionada");
-                //eliminarComando.RaiseCanExecuteChanged();
-                //eliminarComando.CanExecute(personaSeleccionada);
+                
             }
         }
 
@@ -57,7 +66,8 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
         {
             get
             {
-                return listadoPersonaCompleta;
+                //return listadoPersonaCompleta;
+                return listadoPersonaCompleta = new ObservableCollection<clsPersona>(bbdd.listadoPersonas());
             }
             set
             {
@@ -97,17 +107,29 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
             ContentDialogResult result = await subscribeDialog.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
-                listadoPersonaFiltrada.Remove(personaSeleccionada);
+                //No estoy seguro, pero o llamamos de nuevo a la BBDD o se lo borramos a los dos
+                //listadoPersonaFiltrada.Remove(personaSeleccionada);
+                bbdd.borrarPersona(personaSeleccionada.IDPersona);
+                //NotifyPropertyChanged("ListadoPersonaCompleta");
+                listadoPersonaFiltrada = new ObservableCollection<clsPersona>(bbdd.listadoPersonas());
+                NotifyPropertyChanged("ListadoPersonaFiltrada");
             }
         }
 
         public void Filtrar()
         {
-            ObservableCollection<clsPersona> list = new ObservableCollection<clsPersona>(ListadoPersonaFiltrada.ToList().FindAll(a => a.Nombre.Contains(TextoBuscado)).ToList<clsPersona>());
-            //ListadoPersonaFiltrada = ListadoPersonaFiltrada.ToList().FindAll(a => a.Nombre.Contains(TextoBuscado));
-            ListadoPersonaFiltrada = list;
-
+            if (String.IsNullOrWhiteSpace(TextoBuscado))
+            {
+                ListadoPersonaFiltrada = ListadoPersonaCompleta;
+                NotifyPropertyChanged("ListadoPersonaFiltrada");
+            }
+            else
+            {
+                ObservableCollection<clsPersona> list = new ObservableCollection<clsPersona>(ListadoPersonaCompleta.ToList().FindAll(a => a.Nombre.Contains(TextoBuscado)).ToList<clsPersona>());
+                //ListadoPersonaFiltrada = ListadoPersonaFiltrada.ToList().FindAll(a => a.Nombre.Contains(TextoBuscado));
+                ListadoPersonaFiltrada = list;
         }
+    }
 
         public String TextoBuscado
         {
@@ -134,6 +156,82 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
             set
             {
                 listadoPersonaFiltrada = value;
+            }
+
+        }
+
+        public DelegateCommand NewCommand
+        {
+            get
+            {
+                return newCommand;
+            }
+        }
+
+        public void Nuevo()
+        {
+            personaSeleccionada = new clsPersona();
+            NotifyPropertyChanged("PersonaSeleccionada");
+        }
+
+        public DelegateCommand RecargarCommand
+        {
+            get
+            {
+                return recargarComando;
+            }
+        }
+
+        public void Recargar()
+        {
+            ListadoPersonaFiltrada = ListadoPersonaCompleta;
+            NotifyPropertyChanged("ListadoPersonaFiltrada");
+        }
+
+        public DelegateCommand GuardarComando
+        {
+            get
+            {
+                return guardarComando;
+            }
+        }
+
+        public async void Guardar()
+        {
+            if(personaSeleccionada.Equals(bbdd.personaPorID(personaSeleccionada.IDPersona)))
+            {
+                bbdd.actualizarPersona(personaSeleccionada);
+                ContentDialog subscribeDialog = new ContentDialog
+                {
+                    Title = "Actualizado correctamente en la BBDD",
+                    PrimaryButtonText = "Perfecto",
+                    DefaultButton = ContentDialogButton.Primary
+                };
+
+                ContentDialogResult result = await subscribeDialog.ShowAsync();
+            }
+            else
+            {
+                bbdd.crearPersona(personaSeleccionada);
+                ContentDialog subscribeDialog = new ContentDialog
+                {
+                    Title = "Creado correctamente en la BBDD",
+                    PrimaryButtonText = "Perfecto",
+                    DefaultButton = ContentDialogButton.Primary
+                };
+                ContentDialogResult result = await subscribeDialog.ShowAsync();
+            }
+        }
+
+        public ObservableCollection<clsDepartamento> ListadoDepartamentos
+        {
+            get
+            {
+                return dpto;
+            }
+            set
+            {
+                dpto = value;
             }
 
         }
