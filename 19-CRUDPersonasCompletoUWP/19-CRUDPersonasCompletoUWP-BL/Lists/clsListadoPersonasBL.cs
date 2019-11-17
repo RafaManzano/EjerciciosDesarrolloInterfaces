@@ -89,5 +89,17 @@ namespace _19_CRUDPersonasCompletoUWP_BL.Lists
             crud.actualizarPersona(persona);
         }
 
+        /// <summary>
+        /// Recoge de la capa DAL el listado y lo pasa a la CAPA UI
+        /// </summary>
+        /// <param name="persona">La persona modificada para actualizar en la BBDD</param>
+        public bool estoyEnBBDD(clsPersona persona)
+        {
+            bool estoy = false;
+            clsManejadoras crud = new clsManejadoras();
+            estoy = crud.estoyEnBBDD(persona);
+            return estoy;
+        }
+
     }
 }

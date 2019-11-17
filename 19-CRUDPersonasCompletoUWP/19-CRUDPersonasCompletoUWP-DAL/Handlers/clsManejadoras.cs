@@ -95,6 +95,40 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
 
             }
 
+        /// <summary>
+        /// Con este metodo comprobamos si la persona introducida esta en la BBDD
+        /// </summary>
+        /// <param name="persona">La persona introducida</param>
+        /// <returns>Si es true, la persona es una actualizacion, si es false la persona es una creacion</returns>
+        public bool estoyEnBBDD(clsPersona persona)
+        {
+            bool estoy = false;
+            clsPersona oPersona = new clsPersona();
+            clsMyConnection connection = new clsMyConnection();
+            SqlConnection conn = connection.getConnection();
+            SqlCommand miComando = new SqlCommand();
+            SqlDataReader miLector;
+            try
+            {
+                miComando.CommandText = "SELECT * FROM dbo.PD_Personas WHERE idPersona = " + persona.IDPersona;
+                miComando.Connection = conn;
+                miLector = miComando.ExecuteReader();
+                //Si hay lineas en el lector
+                if (miLector.HasRows)
+                { 
+                    estoy = true;
+                    
+                }
+                miLector.Close();
+                connection.closeConnection(ref conn);
+            }
+            catch
+            {
+                throw;
+            }
+            return estoy;
+        }
+
     }
 }
 

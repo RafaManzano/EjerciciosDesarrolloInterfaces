@@ -56,6 +56,8 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
                 this.personaSeleccionada = value;
                 eliminarComando.RaiseCanExecuteChanged();
                 eliminarComando.CanExecute(personaSeleccionada);
+                guardarComando.RaiseCanExecuteChanged();
+                guardarComando.CanExecute(personaSeleccionada);
                 NotifyPropertyChanged("PersonaSeleccionada");
                 
             }
@@ -198,17 +200,16 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
 
         public async void Guardar()
         {
-            if(personaSeleccionada.Equals(bbdd.personaPorID(personaSeleccionada.IDPersona)))
+            if(bbdd.estoyEnBBDD(personaSeleccionada))
             {
-                bbdd.actualizarPersona(personaSeleccionada);
                 ContentDialog subscribeDialog = new ContentDialog
                 {
                     Title = "Actualizado correctamente en la BBDD",
                     PrimaryButtonText = "Perfecto",
                     DefaultButton = ContentDialogButton.Primary
                 };
-
                 ContentDialogResult result = await subscribeDialog.ShowAsync();
+                bbdd.actualizarPersona(personaSeleccionada);
             }
             else
             {

@@ -39,9 +39,9 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                         oPersona.Nombre = ((string)miLector["NombrePersona"] != null) ? (string)miLector["NombrePersona"] : null;
                         oPersona.Apellidos = ((string)miLector["ApellidosPersona"] != null) ? (string)miLector["ApellidosPersona"] : null;
                         oPersona.FechaNacimiento = DateTime.Parse(miLector["FechaNacimientoPersona"].ToString());
-                        oPersona.Direccion = ((string)miLector["direccion"] != null) ? (string)miLector["direccion"] : null;
+                        //oPersona.Direccion = ((string)miLector["direccion"] != null) ? (string)miLector["direccion"] : null;
                         oPersona.Telefono = ((string)miLector["TelefonoPersona"] != null) ? (string)miLector["TelefonoPersona"] : null;
-                        oPersona.Foto = ((byte[])miLector["FotoPersona"] != null) ? (byte[])miLector["FotoPersona"] : null;
+                        //oPersona.Foto = (Convert.IsDBNull((byte[])miLector["FotoPersona"])) ? null: (byte[])miLector["FotoPersona"];
                         oPersona.IDDepartamento = (int)miLector["IDDepartamento"];
                         listado.Add(oPersona);
                     }
@@ -104,7 +104,6 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
         /// <returns>Devolvemos la persona que tiene esa ID</returns>
         public clsPersona personaporID(int id)
         {
-            Byte[] bytes = new Byte[20];
             clsPersona oPersona = new clsPersona();
             clsMyConnection connection = new clsMyConnection();
             SqlConnection conn = connection.getConnection();
@@ -121,12 +120,12 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                     while (miLector.Read())
                     {
                         oPersona.IDPersona = (int)miLector["IdPersona"];
-                        oPersona.Nombre = (oPersona.Nombre != null) ? (string)miLector["NombrePersona"] : null;
-                        oPersona.Apellidos = (oPersona.Apellidos != null) ? (string)miLector["ApellidosPersona"] : null;
+                        oPersona.Nombre = ((string)miLector["NombrePersona"] != null) ? (string)miLector["NombrePersona"] : null;
+                        oPersona.Apellidos = ((string)miLector["ApellidosPersona"] != null) ? (string)miLector["ApellidosPersona"] : null;
                         oPersona.FechaNacimiento = DateTime.Parse(miLector["FechaNacimientoPersona"].ToString());
-                        oPersona.Direccion = (oPersona.Direccion != null) ? (string)miLector["direccion"] : null;
-                        oPersona.Telefono = (oPersona.Telefono != null) ? (string)miLector["TelefonoPersona"] : null;
-                        oPersona.Foto = (oPersona.Foto != null) ? (byte[])miLector["FotoPersona"] : null;
+                        //oPersona.Direccion = ((string)miLector["direccion"] != null) ? (string)miLector["direccion"] : null;
+                        oPersona.Telefono = ((string)miLector["TelefonoPersona"] != null) ? (string)miLector["TelefonoPersona"] : null;
+                        //oPersona.Foto = ((byte[])miLector["FotoPersona"] != null) ? (byte[])miLector["FotoPersona"] : null;
                         oPersona.IDDepartamento = (int)miLector["IDDepartamento"];
                     }
                 }
@@ -178,5 +177,7 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
 
             return oDpto;
         }
+
+       
     }
 }
