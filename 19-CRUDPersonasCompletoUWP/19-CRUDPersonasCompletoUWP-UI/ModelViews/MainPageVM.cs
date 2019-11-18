@@ -23,6 +23,7 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
         private ObservableCollection<clsPersona> listadoPersonaFiltrada;
         private String textoBuscado;
         private ObservableCollection<clsDepartamento> dpto;
+        private clsDepartamento dptoSeleccionado;
         private clsListadoPersonasBL bbdd = new clsListadoPersonasBL();
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -235,6 +236,18 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
                 dpto = value;
             }
 
+        }
+
+        public clsDepartamento DptoSeleccionado
+        {
+            get
+            {
+                return dptoSeleccionado;
+            }
+            set
+            {
+                dptoSeleccionado = value;
+            }
         }
     }
 }

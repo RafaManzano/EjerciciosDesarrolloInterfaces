@@ -36,12 +36,12 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                     {
                         oPersona = new clsPersona();
                         oPersona.IDPersona = (int)miLector["IdPersona"];
-                        oPersona.Nombre = ((string)miLector["NombrePersona"] != null) ? (string)miLector["NombrePersona"] : null;
-                        oPersona.Apellidos = ((string)miLector["ApellidosPersona"] != null) ? (string)miLector["ApellidosPersona"] : null;
-                        oPersona.FechaNacimiento = DateTime.Parse(miLector["FechaNacimientoPersona"].ToString());
+                        oPersona.Nombre = (miLector["NombrePersona"] is DBNull) ? "NULL" : (string)miLector["NombrePersona"];
+                        oPersona.Apellidos = (miLector["ApellidosPersona"] is DBNull) ? "NULL" : (string)miLector["ApellidosPersona"];
+                        //oPersona.FechaNacimiento = (miLector["FechaNacimientoPersona"] is DBNull) ? new DateTimeOffset(DateTime.Now) : new DateTimeOffset((DateTime)miLector["FechaNacimientoPersona"]);
                         //oPersona.Direccion = ((string)miLector["direccion"] != null) ? (string)miLector["direccion"] : null;
-                        oPersona.Telefono = ((string)miLector["TelefonoPersona"] != null) ? (string)miLector["TelefonoPersona"] : null;
-                        //oPersona.Foto = (Convert.IsDBNull((byte[])miLector["FotoPersona"])) ? null: (byte[])miLector["FotoPersona"];
+                        oPersona.Telefono = (miLector["TelefonoPersona"] is DBNull) ? "NULL" : (string)miLector["TelefonoPersona"];
+                        oPersona.Foto = (miLector["FotoPersona"] is DBNull) ? new byte[1] : (Byte[])miLector["FotoPersona"];
                         oPersona.IDDepartamento = (int)miLector["IDDepartamento"];
                         listado.Add(oPersona);
                     }
@@ -120,12 +120,12 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                     while (miLector.Read())
                     {
                         oPersona.IDPersona = (int)miLector["IdPersona"];
-                        oPersona.Nombre = ((string)miLector["NombrePersona"] != null) ? (string)miLector["NombrePersona"] : null;
-                        oPersona.Apellidos = ((string)miLector["ApellidosPersona"] != null) ? (string)miLector["ApellidosPersona"] : null;
-                        oPersona.FechaNacimiento = DateTime.Parse(miLector["FechaNacimientoPersona"].ToString());
+                        oPersona.Nombre = (miLector["NombrePersona"] is DBNull) ? "NULL" : (string)miLector["NombrePersona"];
+                        oPersona.Apellidos = (miLector["ApellidosPersona"] is DBNull) ? "NULL" : (string)miLector["ApellidosPersona"];
+                        oPersona.FechaNacimiento = (miLector["FechaNacimientoPersona"] is DBNull) ? new DateTime() : (DateTime)miLector["FechaNacimientoPersona"];
                         //oPersona.Direccion = ((string)miLector["direccion"] != null) ? (string)miLector["direccion"] : null;
-                        oPersona.Telefono = ((string)miLector["TelefonoPersona"] != null) ? (string)miLector["TelefonoPersona"] : null;
-                        //oPersona.Foto = ((byte[])miLector["FotoPersona"] != null) ? (byte[])miLector["FotoPersona"] : null;
+                        oPersona.Telefono = (miLector["TelefonoPersona"] is DBNull) ? "NULL" : (string)miLector["TelefonoPersona"];
+                        oPersona.Foto = (miLector["FotoPersona"] is DBNull) ? new byte[1] : (Byte[])miLector["FotoPersona"];
                         oPersona.IDDepartamento = (int)miLector["IDDepartamento"];
                     }
                 }

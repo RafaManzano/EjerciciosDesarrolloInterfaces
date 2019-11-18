@@ -49,7 +49,7 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                 miComando.Parameters.Add("@idDpto", System.Data.SqlDbType.Int).Value = persona.IDDepartamento;
                 miComando.Parameters.Add("@fechaNacimiento", System.Data.SqlDbType.Date).Value = persona.FechaNacimiento;
                 miComando.Parameters.Add("@telefono", System.Data.SqlDbType.VarChar).Value = persona.Telefono;
-                miComando.Parameters.Add("@foto", System.Data.SqlDbType.VarBinary).Value = persona.Foto = new byte[10];
+                miComando.Parameters.Add("@foto", System.Data.SqlDbType.VarBinary).Value = persona.Foto;
 
                 try
                 {
@@ -80,7 +80,7 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                 miComando.Parameters.Add("@idDpto", System.Data.SqlDbType.Int).Value = persona.IDDepartamento;
                 miComando.Parameters.Add("@fechaNacimiento", System.Data.SqlDbType.Date).Value = persona.FechaNacimiento;
                 miComando.Parameters.Add("@telefono", System.Data.SqlDbType.VarChar).Value = persona.Telefono;
-                miComando.Parameters.Add("@foto", System.Data.SqlDbType.VarBinary).Value = persona.Foto = new byte[10];
+                miComando.Parameters.Add("@foto", System.Data.SqlDbType.VarBinary).Value = persona.Foto;
 
                 try
                 {
