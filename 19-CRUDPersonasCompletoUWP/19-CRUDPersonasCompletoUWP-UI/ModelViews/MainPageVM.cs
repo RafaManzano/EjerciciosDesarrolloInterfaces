@@ -174,6 +174,10 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
         public void Nuevo()
         {
             personaSeleccionada = new clsPersona();
+            eliminarComando.RaiseCanExecuteChanged();
+            eliminarComando.CanExecute(personaSeleccionada);
+            guardarComando.RaiseCanExecuteChanged();
+            guardarComando.CanExecute(personaSeleccionada);
             NotifyPropertyChanged("PersonaSeleccionada");
         }
 
@@ -211,10 +215,10 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
                 };
                 ContentDialogResult result = await subscribeDialog.ShowAsync();
                 bbdd.actualizarPersona(personaSeleccionada);
+                Recargar();
             }
             else
             {
-                bbdd.crearPersona(personaSeleccionada);
                 ContentDialog subscribeDialog = new ContentDialog
                 {
                     Title = "Creado correctamente en la BBDD",
@@ -222,6 +226,8 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
                     DefaultButton = ContentDialogButton.Primary
                 };
                 ContentDialogResult result = await subscribeDialog.ShowAsync();
+                bbdd.crearPersona(personaSeleccionada);
+                Recargar();
             }
         }
 

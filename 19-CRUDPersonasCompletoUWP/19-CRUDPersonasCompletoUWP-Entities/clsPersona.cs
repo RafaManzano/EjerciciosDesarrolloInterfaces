@@ -15,13 +15,13 @@ public class clsPersona
 
     public clsPersona()
     {
-        //IDPersona = 0;
-        //nombre = "VACIO";
-        //Apellidos = "VACIO";
-        //FechaNacimiento = "";
-        //IDDepartamento = 0;
-        //Foto = "";
-        //Telefono = "";
+        IDPersona = 0;
+        nombre = "";
+        Apellidos = "";
+        FechaNacimiento = new DateTime();
+        IDDepartamento = 0;
+        Foto = new byte[1];
+        Telefono = "";
         //Direccion = "";
     }
 
@@ -54,7 +54,7 @@ public class clsPersona
     public DateTime FechaNacimiento { get; set; }
     public int IDDepartamento { get; set; }
     public Byte[] Foto { get; set; }
-    public string Telefono { get; set; }
+    public String Telefono { get; set; }
     public int IDPersona { get; set; }
     public string Direccion { get; set; }
 }

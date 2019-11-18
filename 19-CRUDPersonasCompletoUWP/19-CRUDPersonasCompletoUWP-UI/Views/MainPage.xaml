@@ -7,12 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:vm="using:_19_CRUDPersonasCompletoUWP_UI.ModelViews"
+    xmlns:con="using:_19_CRUDPersonasCompletoUWP_UI.utiles"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
         <vm:MainPageVM></vm:MainPageVM>
     </Page.DataContext>
+
+    <Page.Resources>
+        <con:DateTimeToDateTimeOffsetConverter x:Key="DateTimeToDateTimeOffsetConverter"></con:DateTimeToDateTimeOffsetConverter>
+    </Page.Resources>
 
     <RelativePanel>
         <Windows10version1809:MenuBar VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" Name="MenuBar">
@@ -56,23 +61,32 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-
-            <TextBlock Name="Nombre" Margin="10">Nombre:</TextBlock>
-            <TextBox Name="tbNombre" Grid.Column="2" Margin="10" Text="{Binding PersonaSeleccionada.Nombre,Mode=TwoWay}"></TextBox>
+            <!--Incluir la foto y cambiar el grid para que quede centrada-->
+            <TextBlock Name="Nombre" Grid.Row="1" Margin="10">Nombre:</TextBlock>
+            <TextBox Name="tbNombre" Grid.Column="2" Margin="10" Text="{Binding PersonaSeleccionada.Nombre,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BeforeTextChanging="TbNombre_BeforeTextChanging"></TextBox>
             <TextBlock Name="Apellidos" Grid.Row="1" Margin="10">Apellidos:</TextBlock>
-            <TextBox Name="tbApellidos" Grid.Column="2" Grid.Row="1" Margin="10" Text="{Binding PersonaSeleccionada.Apellidos,Mode=TwoWay}"></TextBox>
+            <TextBox Name="tbApellidos" Grid.Column="2" Grid.Row="1" Margin="10" Text="{Binding PersonaSeleccionada.Apellidos,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BeforeTextChanging="TbApellidos_BeforeTextChanging"></TextBox>
             <TextBlock Name="FechaNacimiento" Grid.Row="2" Margin="10">Fecha de Nacimiento:</TextBlock>
-            <DatePicker Name="tbFechaNacimiento" Grid.Column="2" Grid.Row="2" Margin="10" Date=""></DatePicker>
+            <DatePicker Name="tbFechaNacimiento" Grid.Column="2" Grid.Row="2" Margin="10"  Date="{Binding PersonaSeleccionada.FechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,Converter={StaticResource DateTimeToDateTimeOffsetConverter}}"></DatePicker>
             <TextBlock Name="IDDepartamento" Grid.Row="3" Margin="10">Departamento:</TextBlock>
             <!--<TextBox Name="tbDepartamento" Grid.Column="2" Grid.Row="3" Margin="10" Text="{Binding PersonaSeleccionada.IDDepartamento,Mode=TwoWay}"></TextBox>-->
-            <ComboBox Name="combo" SelectedValuePath="ID" SelectedValue="{Binding PersonaSeleccionada.IDDepartamento}" ItemsSource="{Binding ListadoDepartamentos, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" DisplayMemberPath="Nombre">
-               
+            <!--<ComboBox Name="combo" SelectedValuePath="Id" SelectedValue="{Binding PersonaSeleccionada.IDDepartamento}" ItemsSource="{Binding ListadoDepartamentos, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" DisplayMemberPath="Nombre"></ComboBox>-->
+            <ComboBox ItemsSource="{Binding ListadoDepartamentos}" SelectedValue="{Binding PersonaSeleccionada.IDDepartamento, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="ID" PlaceholderText="Elige un departamento" Grid.Row="3" Grid.Column="2" Margin="10">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
             <TextBlock Name="Telefono" Grid.Row="4" Margin="10">Telefono:</TextBlock>
-            <TextBox Name="tbTelefono" Grid.Column="2" Grid.Row="4" Margin="10" Text="{Binding PersonaSeleccionada.Telefono,Mode=TwoWay}"></TextBox>
-            <TextBlock Name="Foto" Grid.Row="5" Margin="10">Foto:</TextBlock>
-            <TextBox Name="tbFoto" Grid.Column="2" Grid.Row="5" Margin="10" Text="{Binding PersonaSeleccionada.Foto,Mode=TwoWay}"></TextBox>
+            <TextBox Name="tbTelefono" Grid.Column="2" Grid.Row="4" Margin="10" Text="{Binding PersonaSeleccionada.Telefono,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BeforeTextChanging="TbTelefono_BeforeTextChanging" MaxLength="9"></TextBox>
+            <!--<TextBox Name="tbTelefono" Grid.Column="2" Grid.Row="4" Margin="10" Text="{Binding PersonaSeleccionada.Telefono,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BeforeTextChanging="args.Cancel = args.NewText.Any(c => !char.IsDigit(c));"></TextBox>-->
+            <!--<TextBlock Name="Foto" Grid.Row="5" Margin="10">Foto:</TextBlock>
+            <TextBox Name="tbFoto" Grid.Column="2" Grid.Row="5" Margin="10" Text="{Binding PersonaSeleccionada.Foto,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
         </Grid>
 
         <StackPanel Orientation="Horizontal" Name="debajoBotones" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="grid"

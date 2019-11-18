@@ -38,7 +38,7 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                         oPersona.IDPersona = (int)miLector["IdPersona"];
                         oPersona.Nombre = (miLector["NombrePersona"] is DBNull) ? "NULL" : (string)miLector["NombrePersona"];
                         oPersona.Apellidos = (miLector["ApellidosPersona"] is DBNull) ? "NULL" : (string)miLector["ApellidosPersona"];
-                        //oPersona.FechaNacimiento = (miLector["FechaNacimientoPersona"] is DBNull) ? new DateTimeOffset(DateTime.Now) : new DateTimeOffset((DateTime)miLector["FechaNacimientoPersona"]);
+                        oPersona.FechaNacimiento = (miLector["FechaNacimientoPersona"] is DBNull) ? new DateTime() : (DateTime)miLector["FechaNacimientoPersona"];
                         //oPersona.Direccion = ((string)miLector["direccion"] != null) ? (string)miLector["direccion"] : null;
                         oPersona.Telefono = (miLector["TelefonoPersona"] is DBNull) ? "NULL" : (string)miLector["TelefonoPersona"];
                         oPersona.Foto = (miLector["FotoPersona"] is DBNull) ? new byte[1] : (Byte[])miLector["FotoPersona"];

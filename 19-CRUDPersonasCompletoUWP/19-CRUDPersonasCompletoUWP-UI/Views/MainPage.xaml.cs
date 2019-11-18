@@ -26,5 +26,20 @@ namespace _19_CRUDPersonasCompletoUWP_UI
         {
             this.InitializeComponent();
         }
+
+        private void TbTelefono_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
+        }
+
+        private void TbNombre_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => char.IsDigit(c));
+        }
+
+        private void TbApellidos_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => char.IsDigit(c));
+        }
     }
 }
