@@ -70,12 +70,14 @@
                     <ImageBrush ImageSource="ms-appx:///Assets/sunset.jpg" />
                 </Ellipse.Fill>
             </Ellipse>-->
-            <Button Height="200" Width="300" Grid.ColumnSpan="2" Click="Button_Click">
-                <Ellipse Height="200" Width="300" >
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="ms-appx:///Assets/sunset.jpg" />
-                    </Ellipse.Fill>
-                </Ellipse>
+            <Button Height="200" Width="300" Grid.ColumnSpan="2" Click="Button_Click" HorizontalAlignment="Center">
+                <!--<Ellipse Height="200" Width="300" HorizontalAlignment="Center">
+                    <Ellipse.Fill>-->
+                <!--<Canvas Height="200" Width="300">-->
+                    <Image x:Name="imagencita" Stretch="Fill"/>
+                <!--</Canvas>-->
+                <!--</Ellipse.Fill>
+                </Ellipse>-->
             </Button>
 
             <TextBlock Name="Nombre" Grid.Row="1" Margin="10">Nombre:</TextBlock>

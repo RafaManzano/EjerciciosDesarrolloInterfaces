@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0xc0a
@@ -42,9 +43,10 @@ namespace _19_CRUDPersonasCompletoUWP_UI
             args.Cancel = args.NewText.Any(c => char.IsDigit(c));
         }
 
-        private async System.Threading.Tasks.Task Button_ClickAsync(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ImageBrush image = (ImageBrush)sender;
+           
+            Button image = (Button)sender;
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
             picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
@@ -57,7 +59,10 @@ namespace _19_CRUDPersonasCompletoUWP_UI
             {
                 // Application now has read/write access to the picked file
                 //this.textBlock.Text = "Picked photo: " + file.Name;
-                image.ImageSource = file.Path;
+                //imagencita.Source = new BitmapImage(new Uri(file.Path, UriKind.Absolute));
+                //imagencita.Source = new BitmapImage(new Uri(file.Path, UriKind.Absolute));
+                imagencita.Source = new BitmapImage(new Uri(file.Path, UriKind.Absolute));
+
             }
             else
             {
