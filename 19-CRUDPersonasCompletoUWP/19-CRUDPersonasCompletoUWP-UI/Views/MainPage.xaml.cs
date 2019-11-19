@@ -41,5 +41,28 @@ namespace _19_CRUDPersonasCompletoUWP_UI
         {
             args.Cancel = args.NewText.Any(c => char.IsDigit(c));
         }
+
+        private async System.Threading.Tasks.Task Button_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            ImageBrush image = (ImageBrush)sender;
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".jpeg");
+            picker.FileTypeFilter.Add(".png");
+
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                //this.textBlock.Text = "Picked photo: " + file.Name;
+                image.ImageSource = file.Path;
+            }
+            else
+            {
+                //this.textBlock.Text = "Operation cancelled.";
+            }
+        }
     }
 }
