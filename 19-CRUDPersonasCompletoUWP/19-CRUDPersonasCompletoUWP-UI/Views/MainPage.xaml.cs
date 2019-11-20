@@ -1,10 +1,13 @@
-﻿using System;
+﻿using _19_CRUDPersonasCompletoUWP_UI.ModelViews;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,9 +26,11 @@ namespace _19_CRUDPersonasCompletoUWP_UI
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public MainPageVM viewModel { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
+            viewModel = (MainPageVM)this.DataContext;
         }
 
         private void TbTelefono_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
@@ -42,32 +47,5 @@ namespace _19_CRUDPersonasCompletoUWP_UI
         {
             args.Cancel = args.NewText.Any(c => char.IsDigit(c));
         }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
-            Button image = (Button)sender;
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
-            picker.FileTypeFilter.Add(".jpg");
-            picker.FileTypeFilter.Add(".jpeg");
-            picker.FileTypeFilter.Add(".png");
-
-            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
-            if (file != null)
-            {
-                // Application now has read/write access to the picked file
-                //this.textBlock.Text = "Picked photo: " + file.Name;
-                //imagencita.Source = new BitmapImage(new Uri(file.Path, UriKind.Absolute));
-                //imagencita.Source = new BitmapImage(new Uri(file.Path, UriKind.Absolute));
-                imagencita.Source = new BitmapImage(new Uri(file.Path, UriKind.Absolute));
-
-            }
-            else
-            {
-                //this.textBlock.Text = "Operation cancelled.";
-            }
-        }
-    }
+    }  
 }

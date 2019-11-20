@@ -7,7 +7,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
 {
@@ -253,6 +257,38 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
             set
             {
                 dptoSeleccionado = value;
+            }
+        }
+
+        /// <summary>
+        /// Es para cuando se pulsa la imagen pueda cambiar su Source
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Imagencita_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Image imagencita = (Image)sender;
+            var fileOpenPicker = new FileOpenPicker();
+            fileOpenPicker.ViewMode = PickerViewMode.Thumbnail;
+            fileOpenPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+            fileOpenPicker.FileTypeFilter.Add(".png");
+            fileOpenPicker.FileTypeFilter.Add(".jpg");
+            fileOpenPicker.FileTypeFilter.Add(".jpeg");
+            fileOpenPicker.FileTypeFilter.Add(".bmp");
+
+            var storageFile = await fileOpenPicker.PickSingleFileAsync();
+
+            if (storageFile != null)
+            {
+                // Ensure the stream is disposed once the image is loaded
+                using (IRandomAccessStream fileStream = await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                {
+                    // Set the image source to the selected bitmap
+                    BitmapImage bitmapImage = new BitmapImage();
+
+                    await bitmapImage.SetSourceAsync(fileStream);
+                    imagencita.Source = bitmapImage;
+                }
             }
         }
     }

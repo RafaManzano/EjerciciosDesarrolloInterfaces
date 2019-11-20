@@ -70,15 +70,15 @@
                     <ImageBrush ImageSource="ms-appx:///Assets/sunset.jpg" />
                 </Ellipse.Fill>
             </Ellipse>-->
-            <Button Height="200" Width="300" Grid.ColumnSpan="2" Click="Button_Click" HorizontalAlignment="Center">
+            <!--<Button Height="100" Width="150" Grid.ColumnSpan="2" Click="Button_Click" HorizontalAlignment="Center" Background="#01000000">-->
                 <!--<Ellipse Height="200" Width="300" HorizontalAlignment="Center">
                     <Ellipse.Fill>-->
                 <!--<Canvas Height="200" Width="300">-->
-                    <Image x:Name="imagencita" Stretch="Fill"/>
+            <Image x:Name="imagencita" Height="100" Width="150" Source="ms-appx:///Assets/contacto.png" Stretch="Fill" Grid.ColumnSpan="2" Tapped="{x:Bind viewModel.Imagencita_Tapped}"/>
                 <!--</Canvas>-->
                 <!--</Ellipse.Fill>
                 </Ellipse>-->
-            </Button>
+            <!--</Button>-->
 
             <TextBlock Name="Nombre" Grid.Row="1" Margin="10">Nombre:</TextBlock>
             <TextBox Name="tbNombre" Grid.Column="2" Grid.Row="1" Margin="10" Text="{Binding PersonaSeleccionada.Nombre,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BeforeTextChanging="TbNombre_BeforeTextChanging"></TextBox>
