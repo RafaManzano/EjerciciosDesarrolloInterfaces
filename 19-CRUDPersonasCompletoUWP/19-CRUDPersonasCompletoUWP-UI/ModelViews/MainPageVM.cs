@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
@@ -39,14 +41,28 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
 
         public MainPageVM()
         {
-            this.listadoPersonaCompleta = new ObservableCollection<clsPersona>(bbdd.listadoPersonas());
+            try
+            {
+                this.listadoPersonaCompleta = new ObservableCollection<clsPersona>(bbdd.listadoPersonas());
+                this.dpto = new ObservableCollection<clsDepartamento>(bbdd.listadoDepartamentos());
+            }
+            
+            catch(SqlException e) {
+                mostrarMensajeError();
+            }/*
+            catch(Exception)
+            {
+                mostrarMensajeError();
+            }
+            */
+
             this.listadoPersonaFiltrada = this.listadoPersonaCompleta;
             eliminarComando = new DelegateCommand(Eliminar, () => personaSeleccionada != null);
             filtrarComando = new DelegateCommand(Filtrar, () => !String.IsNullOrEmpty(textoBuscado));
             recargarComando = new DelegateCommand(Recargar);
             newCommand = new DelegateCommand(Nuevo);
             guardarComando = new DelegateCommand(Guardar, () => personaSeleccionada != null);
-            this.dpto = new ObservableCollection<clsDepartamento>(bbdd.listadoDepartamentos());
+            //this.dpto = new ObservableCollection<clsDepartamento>(bbdd.listadoDepartamentos());
         }
 
         public clsPersona PersonaSeleccionada
@@ -290,6 +306,23 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
                     imagencita.Source = bitmapImage;
                 }
             }
+        }
+
+        /// <summary>
+        /// Muestra un dialogo en caso de que la conexion sea erroneo
+        /// </summary>
+        private async void mostrarMensajeError()
+        {
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                Title = "Error",
+                Content = "Reintentelo mas tarde",
+                CloseButtonText = "Vale"
+            };
+
+            await noWifiDialog.ShowAsync();
+            CoreApplication.Exit();
+            
         }
     }
 }

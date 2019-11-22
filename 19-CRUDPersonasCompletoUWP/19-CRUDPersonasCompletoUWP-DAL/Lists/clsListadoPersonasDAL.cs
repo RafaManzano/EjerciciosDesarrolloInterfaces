@@ -21,7 +21,7 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
             clsMyConnection connection = new clsMyConnection();
             SqlConnection conn = connection.getConnection();
             SqlCommand miComando = new SqlCommand();
-            SqlDataReader miLector;
+            SqlDataReader miLector = null;
             clsPersona oPersona;
             //Byte[] bytes = new Byte[20];
             try
@@ -46,12 +46,26 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Handlers
                         listado.Add(oPersona);
                     }
                 }
-                miLector.Close();
-                connection.closeConnection(ref conn);
+               
+                 //miLector.Close();
+                 //connection.closeConnection(ref conn);  
             }
-            catch (SqlException exSql)
+            catch (Exception exSql)
             {
                 throw exSql;
+            }
+
+            finally
+            {
+                if (miLector != null)
+                {
+                    miLector.Close();
+                }
+
+                if (conn != null)
+                {
+                    connection.closeConnection(ref conn);
+                }
             }
 
             return listado;

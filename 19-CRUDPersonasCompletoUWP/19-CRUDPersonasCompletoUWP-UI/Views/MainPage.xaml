@@ -74,7 +74,7 @@
                 <!--<Ellipse Height="200" Width="300" HorizontalAlignment="Center">
                     <Ellipse.Fill>-->
                 <!--<Canvas Height="200" Width="300">-->
-            <Image x:Name="imagencita" Height="100" Width="150" Source="ms-appx:///Assets/contacto.png" Stretch="Fill" Grid.ColumnSpan="2" Tapped="{x:Bind viewModel.Imagencita_Tapped}"/>
+            <Image x:Name="imagencita" Height="100" Width="150" Source="ms-appx:///Assets/contacto.png" Stretch="Fill" Grid.ColumnSpan="2" Tapped="{x:Bind viewModel.Imagencita_Tapped}" /> <!--Tapped="{x:Bind viewModel.Imagencita_Tapped}"-->
                 <!--</Canvas>-->
                 <!--</Ellipse.Fill>
                 </Ellipse>-->
