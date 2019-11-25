@@ -92,7 +92,8 @@ namespace _19_CRUDPersonasCompletoUWP_BL.Lists
         /// <summary>
         /// Recoge de la capa DAL el listado y lo pasa a la CAPA UI
         /// </summary>
-        /// <param name="persona">La persona modificada para actualizar en la BBDD</param>
+        /// <param name="persona">La persona que se desea saber si ya existe en la BBDD</param>
+	/// <returns>Si es true, esta en la BBDD y por el contrario, no estaria todavia introducido<clsDepartamento></returns>
         public bool estoyEnBBDD(clsPersona persona)
         {
             bool estoy = false;
