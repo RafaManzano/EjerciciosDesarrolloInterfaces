@@ -35,8 +35,8 @@ namespace _19_CRUDPersonasCompletoUWP_DAL.Connection
         {
 
             //Mi conexion     
-            //this.server = "rafamanzano.database.windows.net";
-            this.server = "ramanzano.database.windows.net";
+            this.server = "rafamanzano.database.windows.net";
+            //this.server = "ramanzano.database.windows.net";
             this.dataBase = "Personas";
             this.user = "rmanzano";
             this.pass = "MiTesoro.";

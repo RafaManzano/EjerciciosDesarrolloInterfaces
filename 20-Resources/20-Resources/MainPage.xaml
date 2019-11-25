@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="_20_Resources.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_20_Resources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+   
+    <Page.Resources>
+        <SolidColorBrush x:Key="color" Color="Black"></SolidColorBrush>
+    </Page.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <Button Margin="10" Name="btn1" Background="{StaticResource color}">BOTON 1</Button>
+        <Button Margin="10" Name="btn2">BOTON 2</Button>
+        <Button Margin="10" Name="btn3" Background="{StaticResource segundocolor}">BOTON 3</Button>
+        <TextBlock FontSize="10" FontFamily="Verdana" Foreground="Aqua" FontStyle="Normal" Style="{StaticResource estiloTexto}">Sin estilo pero escrito en el dictionary</TextBlock>
+        <TextBlock Style="{StaticResource estiloTexto}">Con estilo</TextBlock>
+        <TextBlock></TextBlock>
+    </StackPanel>
+</Page>

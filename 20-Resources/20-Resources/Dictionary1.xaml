@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_20_Resources">
+
+    <SolidColorBrush x:Key="segundocolor" Color="Aqua"></SolidColorBrush>
+    <Style TargetType="TextBlock" x:Key="estiloTexto">
+        <Setter Property="FontFamily" Value="Sans-Serif"></Setter>
+        <Setter Property="FontSize" Value="30"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="FontStyle" Value="Oblique"></Setter>
+    </Style>
+
+
+</ResourceDictionary>
