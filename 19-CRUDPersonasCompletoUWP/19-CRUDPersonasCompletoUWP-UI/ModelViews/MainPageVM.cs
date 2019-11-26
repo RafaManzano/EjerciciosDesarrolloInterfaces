@@ -1,5 +1,6 @@
 ﻿using _19_CRUDPersonasCompletoUWP_BL.Lists;
 using _19_CRUDPersonasCompletoUWP_Entities;
+using _19_CRUDPersonasCompletoUWP_UI.utiles;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,7 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
         private String textoBuscado;
         private ObservableCollection<clsDepartamento> dpto;
         private clsDepartamento dptoSeleccionado;
+        private BitmapImage imagen;
         private clsListadoPersonasBL bbdd = new clsListadoPersonasBL();
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -75,6 +77,11 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
             set
             {
                 this.personaSeleccionada = value;
+                if (personaSeleccionada != null)
+                {
+                    cargarImagenPersona();
+                }
+                   
                 eliminarComando.RaiseCanExecuteChanged();
                 eliminarComando.CanExecute(personaSeleccionada);
                 guardarComando.RaiseCanExecuteChanged();
@@ -304,6 +311,9 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
 
                     await bitmapImage.SetSourceAsync(fileStream);
                     imagencita.Source = bitmapImage;
+
+                    clsConversorBytes conversor = new clsConversorBytes();
+                    personaSeleccionada.Foto = await conversor.StorageFileToByteArray(storageFile);
                 }
             }
         }
@@ -323,6 +333,40 @@ namespace _19_CRUDPersonasCompletoUWP_UI.ModelViews
             await noWifiDialog.ShowAsync();
             CoreApplication.Exit();
             
+        }
+
+        public BitmapImage Imagen
+        {
+            get
+            {
+                return imagen;
+            }
+            set
+            {
+                imagen = value;
+                NotifyPropertyChanged("Imagen");
+            }
+        }
+
+        public void cargarImagenPersona()
+        {
+            using (InMemoryRandomAccessStream ms = new InMemoryRandomAccessStream())
+            {
+                // Writes the image byte array in an InMemoryRandomAccessStream
+                // that is needed to set the source of BitmapImage.
+                using (DataWriter writer = new DataWriter(ms.GetOutputStreamAt(0)))
+                {
+                    writer.WriteBytes((byte[])personaSeleccionada.Foto);
+
+                    // The GetResults here forces to wait until the operation completes
+                    // (i.e., it is executed synchronously), so this call can block the UI.
+                    writer.StoreAsync().GetResults();
+                }
+
+                var image = new BitmapImage();
+                image.SetSource(ms);
+                Imagen = image;
+            }
         }
     }
 }

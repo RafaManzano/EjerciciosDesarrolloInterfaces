@@ -121,6 +121,8 @@
     </Compile>
     <Compile Include="ModelViews\DelegateCommand.cs" />
     <Compile Include="ModelViews\MainPageVM.cs" />
+    <Compile Include="utiles\clsUtilesFotos.cs" />
+    <Compile Include="utiles\clsConversorBytes.cs" />
     <Compile Include="utiles\DateTimeToDateTimeOffsetConverter.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
