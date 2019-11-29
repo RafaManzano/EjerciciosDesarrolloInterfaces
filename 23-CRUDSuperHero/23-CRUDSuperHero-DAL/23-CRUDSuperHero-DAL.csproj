@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Connection\clsMyConnection.cs" />
+    <Compile Include="Lists\clsListadoCompanhiaDAL.cs" />
     <Compile Include="Lists\clsListadoSuperheroDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\_23_CRUDSuperHero_DAL.rd.xml" />

@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace _23_CRUDSuperHero_DAL.Lists
 {
-    public class clsListadoSuperheroDAL
+    public class clsListadoCompanhiaDAL
     {
         /// Se conecta a la BBDD y devuelve el listado de los superheroes
         /// </summary>
         /// <returns>Listado de Superhero List<clsSuperHero></returns>
-        public List<clsSuperhero> listadoSuperheroes()
+        public List<clsCompanhia> listadoCompanhia()
         {
-            List<clsSuperhero> listado = new List<clsSuperhero>();
+            List<clsCompanhia> listado = new List<clsCompanhia>();
             clsMyConnection connection = new clsMyConnection();
             SqlConnection conn = connection.getConnection();
             SqlCommand miComando = new SqlCommand();
             SqlDataReader miLector = null;
-            clsSuperhero oSuperhero;
+            clsCompanhia oCompanhia;
             //Byte[] bytes = new Byte[20];
             try
             {
-               
-                miComando.CommandText = "SELECT * FROM Superheros";
+                //TODO Cambiar a mi tabla 
+                miComando.CommandText = "SELECT * FROM Companias";
                 miComando.Connection = conn;
                 miLector = miComando.ExecuteReader();
                 //Si hay lineas en el lector
@@ -34,15 +34,10 @@ namespace _23_CRUDSuperHero_DAL.Lists
                 {
                     while (miLector.Read())
                     {
-                        oSuperhero = new clsSuperhero();
-                        oSuperhero.ID = (int)miLector["ID"];
-                        oSuperhero.Nombre = (miLector["Nombre"] is DBNull) ? "NULL" : (string)miLector["Nombre"];
-                        oSuperhero.Apellidos = (miLector["Apellidos"] is DBNull) ? "NULL" : (string)miLector["Apellidos"];
-                        oSuperhero.Apodo = (miLector["Apodo"] is DBNull) ? "NULL" : (string)miLector["Apodo"];
-                        oSuperhero.Sexo = (miLector["Sexo"] is DBNull) ? "NULL" : (string)miLector["Sexo"];
-                        oSuperhero.IDCompanhia = (int)miLector["IDCompanhia"];
-                        oSuperhero.Foto = (miLector["Foto"] is DBNull) ? new byte[1] : (Byte[])miLector["Foto"];
-                        listado.Add(oSuperhero);
+                        oCompanhia = new clsCompanhia();
+                        oCompanhia.ID = (int)miLector["ID"];
+                        oCompanhia.Nombre = (miLector["Nombre"] is DBNull) ? "NULL" : (string)miLector["Nombre"];
+                        listado.Add(oCompanhia);
                     }
                 }
 
@@ -70,6 +65,5 @@ namespace _23_CRUDSuperHero_DAL.Lists
             return listado;
 
         }
-
     }
 }
