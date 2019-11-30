@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _23_CRUDSuperHero_ENTITIES;
+using _23_CRUDSuperHero_UI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,10 +23,21 @@ namespace _23_CRUDSuperHero_UI
     /// Página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
     public sealed partial class MainPage : Page
+       
     {
+        public MainPageVM viewModel { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
+            viewModel = (MainPageVM)this.DataContext;
+        }
+
+        private void ListaElementos_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            ListView listView = (ListView)sender;
+            menuFlyout.ShowAt(listView, e.GetPosition(listView));
+            clsSuperhero superhero = (clsSuperhero)((FrameworkElement)e.OriginalSource).DataContext;
+            this.listViews.SelectedItem = superhero;
         }
     }
 }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace _23_CRUDSuperHero_UI.ViewModel
 {
-    public class DelegateCommand
+    public class DelegateCommand : ICommand
     {
         private readonly Action _execute;
 

@@ -22,11 +22,10 @@ namespace _23_CRUDSuperHero_DAL.Connection
 
             //Mi conexion
             //TODO MODIFICAR PARA MI CONEXION
-            //this.server = "rafamanzano.database.windows.net";
-            this.server = "DESKTOP-5KU3KG2";
-            this.dataBase = "SuperheroesCompanhia";
-            this.user = "DESKTOP-5KU3KG2\\Rafael Manzano";
-            this.pass = "MariCarmen21";
+            this.server = "rafamanzano.database.windows.net";
+            this.dataBase = "Personas";
+            this.user = "rmanzano";
+            this.pass = "MiTesoro.";
 
             //Pablo
             //this.server = "pablot90.database.windows.net";
@@ -60,6 +59,7 @@ namespace _23_CRUDSuperHero_DAL.Connection
 
                 //connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", server, dataBase, user, pass);
                 connection.ConnectionString = $"server={server};database={dataBase};uid={user};pwd={pass};";
+                //connection.ConnectionString = "";
                 connection.Open();
             }
             catch (SqlException)

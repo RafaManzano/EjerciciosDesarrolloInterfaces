@@ -17,16 +17,16 @@
     <RelativePanel>
         <Windows10version1809:MenuBar VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" Name="MenuBar">
             <MenuBarItem Title="Acciones">
-                <MenuFlyoutItem Text="Nuevo" Icon="Add" Command="{Binding NewCommand}"></MenuFlyoutItem>
-                <MenuFlyoutItem Text="Refrescar" Icon="Refresh" Command="{Binding RecargarCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Nuevo" Icon="Add" Command="{Binding NuevoComando}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Refrescar" Icon="Refresh" Command="{Binding RecargarComando}"></MenuFlyoutItem>
                 <MenuFlyoutItem Text="Guardar" Icon="Save" Command="{Binding GuardarComando}"></MenuFlyoutItem>
                 <MenuFlyoutItem Text="Eliminar" Icon="Delete" Command="{Binding EliminarComando}"></MenuFlyoutItem>
             </MenuBarItem>
         </Windows10version1809:MenuBar>
 
         <StackPanel Orientation="Horizontal" Name="botonera" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="MenuBar">
-            <AppBarButton Icon="Add" Label="Nuevo" Command="{Binding NewCommand}"></AppBarButton>
-            <AppBarButton Icon="Refresh" Label="Refrescar" Command="{Binding RecargarCommand}"></AppBarButton>
+            <AppBarButton Icon="Add" Label="Nuevo" Command="{Binding NuevoComando}"></AppBarButton>
+            <AppBarButton Icon="Refresh" Label="Refrescar" Command="{Binding RecargarComando}"></AppBarButton>
             <AppBarButton Icon="Delete" Label="Eliminar" Command="{Binding EliminarComando}"></AppBarButton>
         </StackPanel>
 
@@ -42,5 +42,70 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <ListView SelectedItem="{Binding SuperheroSeleccionado,Mode=TwoWay}" ItemsSource="{Binding Superheroes, Mode=TwoWay}" Name="listViews" RelativePanel.Below="botonera" RelativePanel.RightOf="listView" RightTapped="ListaElementos_RightTapped">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout x:Name="menuFlyout">
+                    <MenuFlyoutItem Icon="Refresh" Text="Refrescar"  Command="{Binding RecargarComando}"   />
+                    <MenuFlyoutItem Icon="Delete" Text="Eliminar"  Command="{Binding EliminarComando}"   />
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="n" Text="{Binding Path=Apodo}"/>
+                    </StackPanel>
+                </DataTemplate> 
+            </ListView.ItemTemplate>
+           
+        </ListView>
+
+        <Grid Margin="10,0,0,0" Name="grid" Background="Beige" RelativePanel.Below="botonera" RelativePanel.RightOf="listViews">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <PersonPicture Name="PersonPicture01" Tapped="{x:Bind viewModel.PersonPicture01_Tapped}" ProfilePicture="{Binding Imagen, Mode=TwoWay}" Height="150" Width="150" Grid.ColumnSpan="2"></PersonPicture>
+            <!--Tapped="{x:Bind viewModel.Imagencita_Tapped}"-->
+            
+            <TextBlock Name="Nombre" Grid.Row="1" Margin="10">Nombre:</TextBlock>
+            <TextBox Name="tbNombre" Grid.Column="2" Grid.Row="1" Margin="10" Text="{Binding SuperheroSeleccionado.Nombre,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Name="Apellidos" Grid.Row="2" Margin="10">Apellidos:</TextBlock>
+            <TextBox Name="tbApellidos" Grid.Column="2" Grid.Row="2" Margin="10" Text="{Binding SuperheroSeleccionado.Apellidos,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Name="Apodo" Grid.Row="3" Margin="10">Apodo:</TextBlock>
+            <TextBox Name="tbApodo" Grid.Column="2" Grid.Row="3" Margin="10" Text="{Binding SuperheroSeleccionado.Apodo,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Name="Sexo" Grid.Row="4" Margin="10">Sexo:</TextBlock>
+            <TextBox Name="tbSexo" Grid.Column="2" Grid.Row="4" Margin="10" Text="{Binding SuperheroSeleccionado.Sexo,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBlock Name="IDCompanhia" Grid.Row="5" Margin="10">Companhia:</TextBlock>
+            <TextBlock Name="textoError" Grid.Row="6" Margin="10" Foreground="Red" Text="{Binding TextoError, Mode=TwoWay}"></TextBlock>
+            <!--<TextBox Name="tbDepartamento" Grid.Column="2" Grid.Row="3" Margin="10" Text="{Binding PersonaSeleccionada.IDDepartamento,Mode=TwoWay}"></TextBox>-->
+            <!--<ComboBox Name="combo" SelectedValuePath="Id" SelectedValue="{Binding PersonaSeleccionada.IDDepartamento}" ItemsSource="{Binding ListadoDepartamentos, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" DisplayMemberPath="Nombre"></ComboBox>-->
+            <ComboBox ItemsSource="{Binding Companhias}" SelectedValue="{Binding SuperheroSeleccionado.IDCompanhia, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="ID" PlaceholderText="Elige una companhia" Grid.Row="5" Grid.Column="2" Margin="10">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Nombre}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Name="debajoBotones" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="grid"
+                     Margin="0,20,0,0">
+            <AppBarButton Icon="Save" Label="Guardar" Command="{Binding GuardarComando}"></AppBarButton>
+            <AppBarButton Icon="Delete" Label="Eliminar" Command="{Binding EliminarComando}" Name="eliminar"></AppBarButton>
+        </StackPanel>
+
     </RelativePanel>
 </Page>

@@ -11,9 +11,9 @@ namespace _23_CRUDSuperHero_DAL.Lists
 {
     public class clsListadoCompanhiaDAL
     {
-        /// Se conecta a la BBDD y devuelve el listado de los superheroes
+        /// Se conecta a la BBDD y devuelve el listado de los companhias
         /// </summary>
-        /// <returns>Listado de Superhero List<clsSuperHero></returns>
+        /// <returns>Listado de Companhia List<clsCompanhia></returns>
         public List<clsCompanhia> listadoCompanhia()
         {
             List<clsCompanhia> listado = new List<clsCompanhia>();
@@ -26,7 +26,7 @@ namespace _23_CRUDSuperHero_DAL.Lists
             try
             {
                 //TODO Cambiar a mi tabla 
-                miComando.CommandText = "SELECT * FROM Companias";
+                miComando.CommandText = "SELECT * FROM dbo.Companhias";
                 miComando.Connection = conn;
                 miLector = miComando.ExecuteReader();
                 //Si hay lineas en el lector
@@ -35,7 +35,7 @@ namespace _23_CRUDSuperHero_DAL.Lists
                     while (miLector.Read())
                     {
                         oCompanhia = new clsCompanhia();
-                        oCompanhia.ID = (int)miLector["ID"];
+                        oCompanhia.ID = (Int16)miLector["ID"];
                         oCompanhia.Nombre = (miLector["Nombre"] is DBNull) ? "NULL" : (string)miLector["Nombre"];
                         listado.Add(oCompanhia);
                     }
