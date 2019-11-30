@@ -29,6 +29,47 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public ObservableCollection<clsCompanhia> Companhias
+        {
+            get
+            {
+                return companhias;
+            }
+        }
+
+        public ObservableCollection<clsSuperhero> Superheroes
+        {
+            get
+            {
+                return superheroes;
+            }
+        }
+
+        public clsSuperhero SuperheroSeleecionado
+        {
+            get
+            {
+                return superheroSeleccionado;
+            }
+
+            set
+            {
+                superheroSeleccionado = value;
+            }
+        }
+
+        public clsCompanhia CompanhiaSeleccionada
+        {
+            get
+            {
+                return companhiaSeleccionada;
+            }
+
+            set
+            {
+                companhiaSeleccionada = value;
+            }
+        }
 
     }
 }

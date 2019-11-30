@@ -23,10 +23,10 @@ namespace _23_CRUDSuperHero_DAL.Connection
             //Mi conexion
             //TODO MODIFICAR PARA MI CONEXION
             //this.server = "rafamanzano.database.windows.net";
-            //this.server = "ramanzano.database.windows.net";
-            this.dataBase = "Personas";
-            this.user = "rmanzano";
-            this.pass = "MiTesoro.";
+            this.server = "DESKTOP-5KU3KG2";
+            this.dataBase = "SuperheroesCompanhia";
+            this.user = "DESKTOP-5KU3KG2\\Rafael Manzano";
+            this.pass = "MariCarmen21";
 
             //Pablo
             //this.server = "pablot90.database.windows.net";

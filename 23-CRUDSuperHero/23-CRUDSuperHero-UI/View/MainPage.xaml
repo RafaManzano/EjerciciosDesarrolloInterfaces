@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="_23_CRUDSuperHero_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_23_CRUDSuperHero_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:mv="using:_23_CRUDSuperHero_UI.ViewModel"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <mv:MainPageVM></mv:MainPageVM>
+    </Page.DataContext>
+
+    <RelativePanel>
+        <Windows10version1809:MenuBar VerticalAlignment="Top" RelativePanel.AlignTopWithPanel="True" Name="MenuBar">
+            <MenuBarItem Title="Acciones">
+                <MenuFlyoutItem Text="Nuevo" Icon="Add" Command="{Binding NewCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Refrescar" Icon="Refresh" Command="{Binding RecargarCommand}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Guardar" Icon="Save" Command="{Binding GuardarComando}"></MenuFlyoutItem>
+                <MenuFlyoutItem Text="Eliminar" Icon="Delete" Command="{Binding EliminarComando}"></MenuFlyoutItem>
+            </MenuBarItem>
+        </Windows10version1809:MenuBar>
+
+        <StackPanel Orientation="Horizontal" Name="botonera" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="MenuBar">
+            <AppBarButton Icon="Add" Label="Nuevo" Command="{Binding NewCommand}"></AppBarButton>
+            <AppBarButton Icon="Refresh" Label="Refrescar" Command="{Binding RecargarCommand}"></AppBarButton>
+            <AppBarButton Icon="Delete" Label="Eliminar" Command="{Binding EliminarComando}"></AppBarButton>
+        </StackPanel>
+
+        <TextBlock Name="Buscar" RelativePanel.LeftOf="tbBuscar" Margin="10,15,10,10">Buscar:</TextBlock>
+        <TextBox Name="tbBuscar" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="10,10,20,0" Text="{Binding TextoBuscado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+        <ListView RelativePanel.AlignLeftWithPanel="True" SelectedItem="{Binding CompanhiaSeleccionada,Mode=TwoWay}" ItemsSource="{Binding Companhias, Mode=TwoWay}" Name="listView" RelativePanel.Below="botonera">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="n" Text="{Binding Path=Nombre}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </RelativePanel>
+</Page>
