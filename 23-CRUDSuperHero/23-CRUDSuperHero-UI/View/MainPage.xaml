@@ -55,12 +55,11 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="n" Text="{Binding Path=Apodo}"/>
                     </StackPanel>
-                </DataTemplate> 
+                </DataTemplate>
             </ListView.ItemTemplate>
-           
-        </ListView>
 
-        <Grid Margin="10,0,0,0" Name="grid" Background="Beige" RelativePanel.Below="botonera" RelativePanel.RightOf="listViews">
+        </ListView>
+        <Grid Margin="10,0,0,0" Name="grid" Background="Beige" RelativePanel.Below="botonera" RelativePanel.RightOf="listViews" Opacity="{Binding Opacidad, Mode=TwoWay}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>

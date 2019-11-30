@@ -38,7 +38,7 @@ namespace _23_CRUDSuperHero_DAL.Handlers
         /// <summary>
         /// Con este metodo comprobamos si el superheroe introducido esta en la BBDD
         /// </summary>
-        /// <param name="superhero">La persona introducida</param>
+        /// <param name="superhero">El superheroe introducido</param>
         /// <returns>Si es true, el superhero es una actualizacion, si es false el superhero es una creacion</returns>
         public bool estoyEnBBDD(clsSuperhero superhero)
         {

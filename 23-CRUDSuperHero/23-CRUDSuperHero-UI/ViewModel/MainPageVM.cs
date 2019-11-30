@@ -19,12 +19,15 @@ namespace _23_CRUDSuperHero_UI.ViewModel
 {
     public class MainPageVM : INotifyPropertyChanged
     {
+        #region Propiedades privadas y instanciacion de bbdd
+        
         private ObservableCollection<clsCompanhia> companhias;
         private ObservableCollection<clsSuperhero> superheroes;
         private clsCompanhia companhiaSeleccionada;
         private clsSuperhero superheroSeleccionado;
         private String textoError;
         private String textoBuscado;
+        private int opacidad;
         private BitmapImage imagen;
         private DelegateCommand eliminarComando;
         private DelegateCommand filtrarComando;
@@ -34,22 +37,29 @@ namespace _23_CRUDSuperHero_UI.ViewModel
         private clsListadoCompanhiaBL clist = new clsListadoCompanhiaBL();
         private clsListadoSuperheroBL slist = new clsListadoSuperheroBL();
         private clsManejadorasBL smanejadoras = new clsManejadorasBL();
+        #endregion
 
         public MainPageVM()
         {
+            #region Declaracion de propiedades privadas
             this.companhias = new ObservableCollection<clsCompanhia>(clist.listadoCompanhias());
             eliminarComando = new DelegateCommand(Eliminar, () => superheroSeleccionado != null );
             filtrarComando = new DelegateCommand(Filtrar, () => companhiaSeleccionada != null);
             recargarComando = new DelegateCommand(Recargar);
             nuevoComando = new DelegateCommand(Nuevo);
             guardarComando = new DelegateCommand(Guardar, () => superheroSeleccionado != null);
+            #endregion
         }
 
+        #region PropertyChangedEventHandler
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void NotifyPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #endregion
+
+        #region Get y Set
         public string TextoError
         {
             get
@@ -60,6 +70,22 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             set
             {
                 textoError = value;
+            }
+        }
+
+        public String TextoBuscado
+        {
+            get
+            {
+                return textoBuscado;
+            }
+
+            set
+            {
+                this.textoBuscado = value;
+                filtrarComando.Execute(null);
+                filtrarComando.RaiseCanExecuteChanged();
+                NotifyPropertyChanged("Superheroes");
             }
         }
 
@@ -93,6 +119,7 @@ namespace _23_CRUDSuperHero_UI.ViewModel
                 eliminarComando.CanExecute(superheroSeleccionado);
                 guardarComando.RaiseCanExecuteChanged();
                 guardarComando.CanExecute(superheroSeleccionado);
+                Opacidad = 100;
                 NotifyPropertyChanged("SuperheroSeleccionado");
             }
         }
@@ -128,6 +155,22 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             }
         }
 
+        public int Opacidad
+        {
+            get
+            {
+                return opacidad;
+            }
+
+            set
+            {
+                opacidad = value;
+                NotifyPropertyChanged("Opacidad");
+            }
+        }
+        #endregion
+
+        #region Get DelegateCommand
         public DelegateCommand EliminarComando
         {
             get
@@ -136,7 +179,7 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             }
         }
 
-        
+
         public DelegateCommand FiltrarComando
         {
             get
@@ -144,8 +187,34 @@ namespace _23_CRUDSuperHero_UI.ViewModel
                 return filtrarComando;
             }
         }
-        
 
+        public DelegateCommand RecargarComando
+        {
+            get
+            {
+                return recargarComando;
+            }
+        }
+
+        public DelegateCommand GuardarComando
+        {
+            get
+            {
+                return guardarComando;
+            }
+        }
+
+        public DelegateCommand NuevoComando
+        {
+            get
+            {
+                return nuevoComando;
+            }
+        }
+
+        #endregion
+
+        #region Metodos para los DelegateCommand
         public async void Eliminar()
         {
             if(superheroSeleccionado.Nombre != "" && superheroSeleccionado.Apellidos != "" || superheroSeleccionado.Apodo != "")
@@ -194,32 +263,7 @@ namespace _23_CRUDSuperHero_UI.ViewModel
                 superheroes = list;
                 NotifyPropertyChanged("Superheroes");
             }
-        }
-
-        public String TextoBuscado
-        {
-            get
-            {
-                return textoBuscado;
-            }
-
-            set
-            {
-                this.textoBuscado = value;
-                filtrarComando.Execute(null);
-                filtrarComando.RaiseCanExecuteChanged();
-                NotifyPropertyChanged("Superheroes");
-            }
-        }
-        
-
-        public DelegateCommand NuevoComando
-        {
-            get
-            {
-                return nuevoComando;
-            }
-        }
+        }  
 
         public void Nuevo()
         {
@@ -228,16 +272,11 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             eliminarComando.CanExecute(superheroSeleccionado);
             guardarComando.RaiseCanExecuteChanged();
             guardarComando.CanExecute(superheroSeleccionado);
+            Opacidad = 100;
             NotifyPropertyChanged("SuperheroSeleccionado");
         }
 
-        public DelegateCommand RecargarComando
-        {
-            get
-            {
-                return recargarComando;
-            }
-        }
+        
 
         public void Recargar()
         {
@@ -245,17 +284,18 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             NotifyPropertyChanged("Superheroes");
         }
 
-        public DelegateCommand GuardarComando
-        {
-            get
-            {
-                return guardarComando;
-            }
-        }
+        
 
         public async void Guardar()
         {
-            if (superheroSeleccionado.Nombre != "" && superheroSeleccionado.Apellidos != "" || superheroSeleccionado.Apodo != "")
+            /*
+            if (superheroSeleccionado == null) {
+                textoError = "No se puede guardar en la BBDD porque no se han escrito todos los campos requeridos (NOMBRE, APELLIDOS, APODO Y COMPANHIA)";
+                NotifyPropertyChanged("TextoError");
+            }
+            else 
+            */
+            if(superheroSeleccionado.Nombre != "" && superheroSeleccionado.Apellidos != "" || superheroSeleccionado.Apodo != "")
             {
 
                 if (smanejadoras.estoyenBBDD(superheroSeleccionado))
@@ -294,6 +334,9 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             }
         }
 
+        #endregion
+
+        #region Tapped para la imagen
         /// <summary>
         /// Comentario: Este evento nos permite abrir un selector de archivos que admite
         /// los siguientes formatos de imagen: png, jpg, jpge o bmp. Al elegir una imagen
@@ -344,7 +387,9 @@ namespace _23_CRUDSuperHero_UI.ViewModel
 
             }
         }
+        #endregion
 
+        #region Metodo para cargar la imagen
         /// <summary>
         /// Comentario: Este método nos permite cargar la imagen de una persona al seleccionarla
         /// en la aplicación.
@@ -370,5 +415,6 @@ namespace _23_CRUDSuperHero_UI.ViewModel
             }
             NotifyPropertyChanged("Imagen");
         }
+        #endregion
     }
 }

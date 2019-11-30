@@ -72,9 +72,9 @@ namespace _23_CRUDSuperHero_DAL.Lists
         }
 
 
-        /// Se conecta a la BBDD y devuelve el listado de los superheroes
+        /// Se conecta a la BBDD y devuelve el listado de los superheroes por companhia
         /// </summary>
-        /// <returns>Listado de Superhero List<clsSuperHero></returns>
+        /// <returns>Listado de Superhero por companhia List<clsSuperHero></returns>
         public List<clsSuperhero> listadoSuperheroesPorIDCompanhia(Int16 idCompanhia)
         {
             List<clsSuperhero> listado = new List<clsSuperhero>();
