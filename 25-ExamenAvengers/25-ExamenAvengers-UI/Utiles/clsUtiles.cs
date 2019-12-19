@@ -23,7 +23,7 @@ namespace _25_ExamenAvengers_UI.Utiles
             for(int i = 0; i < superheroes.Count; i++)
             {
                 //TODO Asegurarme que cada foto se almacena correctamente en su superheroe. Al final lo he dejado asi. No me ha dado tiempo
-                super = new clsSuperheroeConFoto(superheroes[i].IDSuperheroe, superheroes[i].NombreSuperheroe, list[i]);
+                super = new clsSuperheroeConFoto(superheroes[i].IDSuperheroe, superheroes[i].NombreSuperheroe);
                 listSuper.Add(super);
             }
 

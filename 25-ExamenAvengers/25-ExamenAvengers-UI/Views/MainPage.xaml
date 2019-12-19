@@ -14,13 +14,13 @@
     </Page.DataContext>
     
     <RelativePanel>
-        <ListView Name="flip" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="10" SelectedItem="{Binding SuperheroSeleccionado, Mode=TwoWay}" ItemsSource="{Binding Superheroes, Mode=TwoWay}" Width="200">
-            <ListView.ItemTemplate>
+        <FlipView Name="flip" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignTopWithPanel="True" Margin="10" SelectedItem="{Binding SuperheroSeleccionado, Mode=TwoWay}" ItemsSource="{Binding Superheroes, Mode=TwoWay}" Width="200">
+            <FlipView.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding Path=Foto}"></Image>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </FlipView.ItemTemplate>
+        </FlipView>
 
         <ListView SelectedItem="{Binding MisionSeleccionada,Mode=TwoWay}" ItemsSource="{Binding Misiones, Mode=TwoWay}" Name="listView" RelativePanel.RightOf="flip">
             <ListView.ItemTemplate>

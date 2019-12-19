@@ -33,6 +33,7 @@ namespace _25_ExamenAvengers_UI.ViewModels
         #region Constructor
         public MainPageVM()
         {
+            //TODO Try Catch
             listadoSuperheroes = slist.listadoSuperheroes();
             superheroes = new ObservableCollection<clsSuperheroeConFoto>(clsUtiles.listadoSuperheroesConFoto(listadoSuperheroes));
             misiones = new ObservableCollection<clsMisiones>(mlist.listadoMisionesDisponibles());

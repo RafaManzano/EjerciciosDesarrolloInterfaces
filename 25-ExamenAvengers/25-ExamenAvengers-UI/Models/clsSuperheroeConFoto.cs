@@ -11,21 +11,27 @@ namespace _25_ExamenAvengers_UI.Models
     {
         public clsSuperheroeConFoto()
         {
-            Foto = new Uri("ms-appx:///Assets/StoreLogo.png");
+            //foto = new Uri("ms-appx:///Assets/StoreLogo.png");
         }
 
         public clsSuperheroeConFoto(Uri foto)
         {
-            Foto = foto; 
+            //foto = foto; 
         }
 
-        public clsSuperheroeConFoto(int id, string nombre, Uri foto)
+        public clsSuperheroeConFoto(int id, string nombre)
         {
             IDSuperheroe = id;
             NombreSuperheroe = nombre;
-            Foto = foto;
+            //Foto = foto;
         }
 
-        public Uri Foto { get; set; }
+        public Uri Foto
+        {
+            get
+            {
+                return new Uri("ms-appx:///Assets/" + IDSuperheroe + ".jpg");
+            }
+        }
     }
 }
