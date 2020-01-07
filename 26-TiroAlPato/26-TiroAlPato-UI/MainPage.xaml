@@ -6,7 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:vm="using:_26_TiroAlPato_UI.ViewModel"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:ViewModel></vm:ViewModel>
+    </Page.DataContext>
 
     <RelativePanel>
         <RelativePanel.Background>
@@ -34,9 +39,9 @@
                 </Storyboard>
             </Canvas.Resources>
 
-            <Image Source="ms-appx:///Assets/patofem.png" Width="80" Name="ImagenPato" Tapped="ImagenPato_Tapped">
+            <Image Source="ms-appx:///Assets/patofem.png" Width="80" Name="ImagenPato">
                 <Image.RenderTransform>
-                        <TranslateTransform x:Name="TranslateTransform" Y="100" />
+                        <TranslateTransform x:Name="TranslateTransform" Y="0" />
                 </Image.RenderTransform>
             </Image>
             
@@ -44,9 +49,9 @@
         
 
         <TextBlock Name="puntuacion" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" FontSize="20">Tu puntuacion: </TextBlock>
-        <TextBlock Name="bindPuntuacion" RelativePanel.RightOf="puntuacion" RelativePanel.AlignBottomWithPanel="True" Margin="10,0,0,0" FontSize="20">0</TextBlock>
+        <TextBlock Name="bindPuntuacion" RelativePanel.RightOf="puntuacion" RelativePanel.AlignBottomWithPanel="True" Margin="10,0,0,0" FontSize="20" Text="{Binding TuPuntuacion}"></TextBlock>
 
         <TextBlock Name="puntuacionRival"  RelativePanel.LeftOf="bindPuntuacionRival"  RelativePanel.AlignBottomWithPanel="True" Margin="0,0,10,0" FontSize="20">Puntuacion Rival:</TextBlock>
-        <TextBlock Name="bindPuntuacionRival" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" FontSize="20">0</TextBlock>
+        <TextBlock Name="bindPuntuacionRival" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignBottomWithPanel="True" FontSize="20" Text="{Binding PuntuacionRival}"></TextBlock>
     </RelativePanel>
 </Page>

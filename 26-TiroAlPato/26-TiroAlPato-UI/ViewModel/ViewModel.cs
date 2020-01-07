@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
+using Windows.UI.Xaml.Input;
 
 namespace _26_TiroAlPato_UI.ViewModel
 {
@@ -41,6 +42,33 @@ namespace _26_TiroAlPato_UI.ViewModel
         #endregion
 
         #region Metodos
+        public int TuPuntuacion
+        {
+            get
+            {
+                return tuPuntuacion;
+            }
+
+            set
+            {
+                tuPuntuacion = value;
+            }
+        }
+
+        public int PuntuacionRival
+        {
+            get
+            {
+                return puntuacionRival;
+            }
+
+            set
+            {
+                puntuacionRival = value;
+            }
+        }
+
+        /*
         private void enviarPuntuacion(int puntuacion)
         {
             tuPuntuacion = puntuacion;
@@ -50,7 +78,16 @@ namespace _26_TiroAlPato_UI.ViewModel
             //puntuacionRival = j2;
             //listaMensajes.Add(mensaje);
         }
+        */
+
+        private void ImagenPato_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            tuPuntuacion++;
+            NotifyPropertyChanged("TuPuntuacion");
+        }
+        
         #endregion
 
     }
+    
 }

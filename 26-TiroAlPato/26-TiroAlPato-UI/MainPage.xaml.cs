@@ -21,14 +21,14 @@ namespace _26_TiroAlPato_UI
     /// Página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
     public sealed partial class MainPage : Page
-    {
+    { 
         public MainPage()
         {
             Random rnd = new Random();
             this.InitializeComponent();
 
             //desaparecerPato.Begin();
-            
+
             animacionEjeX.From = rnd.Next(1000);
             animacionEjeY.From = rnd.Next(1000);
             //desaparecerPato.Children.ElementAt(0).SetValue(rnd.Next(1000));
@@ -48,9 +48,6 @@ namespace _26_TiroAlPato_UI
             desaparecerPato.Begin();
         }
 
-        private void ImagenPato_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            //Puntuacion +1
-        }
+
     }
 }
