@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Input;
 
-namespace _26_TiroAlPato_UI.ViewModel
+namespace _26A_TiroAlPato_UI.ViewModels
 {
-    public class ViewModel : INotifyPropertyChanged
+    public class MainPageVM : INotifyPropertyChanged
     {
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,13 +29,13 @@ namespace _26_TiroAlPato_UI.ViewModel
         #endregion
 
         #region Constructores
-        public ViewModel()
+        public MainPageVM()
         {
             //TODO try Catch
-            conn = new HubConnection("https://chatsignalrderafa.azurewebsites.net");
+            conn = new HubConnection("http://localhost:63274/");
             proxy = conn.CreateHubProxy("PatoHub");
             conn.Start();
-            
+
 
             //proxy.On<int, int>("broadcastMessage", tuPuntuacion, puntuacionRival);
         }
@@ -80,14 +80,25 @@ namespace _26_TiroAlPato_UI.ViewModel
         }
         */
 
-        private void ImagenPato_Tapped(object sender, TappedRoutedEventArgs e)
+        public void ImagenPato_Tapped(object sender, TappedRoutedEventArgs e)
         {
             tuPuntuacion++;
-            NotifyPropertyChanged("TuPuntuacion");
+            proxy.Invoke("recogerPuntuacion", tuPuntuacion);
+            //NotifyPropertyChanged("TuPuntuacion");
+        }
+
+        private async void puntuaciones(int puntuacionJ1, int puntuacionJ2)
+        {
+            await Windows.ApplicationModel.Core.CoreApplication.MainView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                tuPuntuacion = puntuacionJ1;
+                puntuacionRival = puntuacionJ2;
+                NotifyPropertyChanged("TuPuntuacion");
+                NotifyPropertyChanged("PuntuacionRival");
+            });
         }
         
         #endregion
-
-    }
     
+    }
 }

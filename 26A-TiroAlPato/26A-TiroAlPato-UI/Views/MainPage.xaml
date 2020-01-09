@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="_26_TiroAlPato_UI.MainPage"
+    x:Class="_26A_TiroAlPato_UI.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:_26_TiroAlPato_UI"
+    xmlns:local="using:_26A_TiroAlPato_UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:vm="using:_26_TiroAlPato_UI.ViewModel"
+    xmlns:vm="using:_26A_TiroAlPato_UI.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
@@ -20,7 +20,7 @@
 
         <Canvas Width="80" RelativePanel.AlignLeftWithPanel="True">
             <Canvas.Resources>
-            <Storyboard x:Name="desaparecerPato">
+                <Storyboard x:Name="desaparecerPato">
                     <DoubleAnimation x:Name="animacionEjeX" Storyboard.TargetName="TranslateTransform"
                              Storyboard.TargetProperty="X"
                              From="0"
@@ -41,14 +41,14 @@
 
             <Image Source="ms-appx:///Assets/patofem.png" Width="80" Name="ImagenPato" Tapped="{Binding ImagenPato_Tapped }">
                 <Image.RenderTransform>
-                        <TranslateTransform x:Name="TranslateTransform" Y="0" />
+                    <TranslateTransform x:Name="TranslateTransform" Y="0" />
                 </Image.RenderTransform>
             </Image>
-            
-        </Canvas>
-        
 
-        <TextBlock Name="puntuacion" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" FontSize="20">Tu puntuacion: </TextBlock>
+        </Canvas>
+
+
+        <TextBlock Name="puntuacion" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" FontSize="20">Tu puntuacion:</TextBlock>
         <TextBlock Name="bindPuntuacion" RelativePanel.RightOf="puntuacion" RelativePanel.AlignBottomWithPanel="True" Margin="10,0,0,0" FontSize="20" Text="{Binding TuPuntuacion}"></TextBlock>
 
         <TextBlock Name="puntuacionRival"  RelativePanel.LeftOf="bindPuntuacionRival"  RelativePanel.AlignBottomWithPanel="True" Margin="0,0,10,0" FontSize="20">Puntuacion Rival:</TextBlock>

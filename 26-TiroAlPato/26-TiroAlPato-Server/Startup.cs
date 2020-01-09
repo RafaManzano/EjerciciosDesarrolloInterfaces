@@ -11,8 +11,9 @@ namespace _26_TiroAlPato_Server
     {
         public void Configuration(IAppBuilder app)
         {
-            // Para obtener más información sobre cómo configurar la aplicación, visite https://go.microsoft.com/fwlink/?LinkID=316888
-            app.MapSignalR();
+             // Para obtener más información sobre cómo configurar la aplicación, visite https://go.microsoft.com/fwlink/?LinkID=316888
+             app.MapSignalR();
         }
+        
     }
 }
