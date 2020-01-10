@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="_27_Shapes.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_27_Shapes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Canvas>
+        <Polygon Margin="10" Stroke="Red" Fill="Red" Points="10, 50 30, 50 20, 30" />
+        <Polygon Margin="40" Stroke="Red" Fill="Red" Points="30, 40 80, 40, 90 45, 80, 50 30, 50" />
+        <Polygon Margin="100" Stroke="Red" Fill="Red" Points="30, 20 35, 15 30, 10 40, 10 45, 5 50, 10 60, 10 50, 15 55, 20 45, 17" />
+    </Canvas>
+</Page>
