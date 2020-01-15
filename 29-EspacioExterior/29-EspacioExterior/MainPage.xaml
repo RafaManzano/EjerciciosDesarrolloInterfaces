@@ -8,7 +8,82 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Canvas Background="Black" Name="canvas">
-        <Image Source="ms-appx:///Assets/nave2.jpg" Width="150"/>
+    <Canvas Background="Black" Name="canvas" Loaded="allowfocus_Loaded">
+        <Canvas.Resources>
+                <Storyboard x:Name="animacionEstrellasGordas">
+                    <DoubleAnimation x:Name="ejeYgordas" Storyboard.TargetName="estrellasGordas"
+                             Storyboard.TargetProperty="(Canvas.Top)"
+                             From="-1000"
+                             To="1500"
+                             Duration="0:0:2"
+                             RepeatBehavior="Forever">
+                    </DoubleAnimation>
+                </Storyboard>
+
+            <Storyboard x:Name="animacionEstrellasMedianas">
+                <DoubleAnimation x:Name="ejeYmedianas" Storyboard.TargetName="estrellasMedianas"
+                             Storyboard.TargetProperty="(Canvas.Top)"
+                             From="-1000"
+                             To="1500"
+                             Duration="0:0:3"
+                             RepeatBehavior="Forever">
+                </DoubleAnimation>
+            </Storyboard>
+
+
+            <Storyboard x:Name="animacionEstrellasPequenhas">
+                <DoubleAnimation x:Name="ejeYpequenhas" Storyboard.TargetName="estrellasPequenhas"
+                             Storyboard.TargetProperty="(Canvas.Top)"
+                             From="-1000"
+                             To="1500"
+                             Duration="0:0:5"
+                             RepeatBehavior="Forever">
+                </DoubleAnimation>
+            </Storyboard>
+            
+        </Canvas.Resources>
+        <Path Fill="WhiteSmoke" Margin="5" Canvas.Top="10" Canvas.Left="10" Name="estrellasGordas" Opacity="0.5">
+            <Path.Data>
+                <GeometryGroup>
+                    <EllipseGeometry Center="300,50" RadiusX="10" RadiusY="10"></EllipseGeometry>
+                    <EllipseGeometry Center="1000,180" RadiusX="10" RadiusY="10"></EllipseGeometry>
+                    <EllipseGeometry Center="400,300" RadiusX="10" RadiusY="10"></EllipseGeometry>
+                    <!--3 Mas-->
+                    <EllipseGeometry Center="200,150" RadiusX="10" RadiusY="10"></EllipseGeometry>
+                    <EllipseGeometry Center="800,400" RadiusX="10" RadiusY="10"></EllipseGeometry>
+                    <EllipseGeometry Center="600,190" RadiusX="10" RadiusY="10"></EllipseGeometry>
+                </GeometryGroup>
+            </Path.Data>
+        </Path>
+
+        <Path Fill="WhiteSmoke" Margin="5" Canvas.Top="10" Canvas.Left="10" Name="estrellasMedianas" Opacity="0.3">
+            <Path.Data>
+                <GeometryGroup>
+                    <EllipseGeometry Center="50,100" RadiusX="8" RadiusY="8"></EllipseGeometry>
+                    <EllipseGeometry Center="1200,300" RadiusX="8" RadiusY="8"></EllipseGeometry>
+                    <EllipseGeometry Center="800,250" RadiusX="8" RadiusY="8"></EllipseGeometry>
+                    <!--3 Mas-->
+                    <EllipseGeometry Center="1100,120" RadiusX="8" RadiusY="8"></EllipseGeometry>
+                    <EllipseGeometry Center="1200,600" RadiusX="8" RadiusY="8"></EllipseGeometry>
+                    <EllipseGeometry Center="650,15" RadiusX="8" RadiusY="8"></EllipseGeometry>
+                </GeometryGroup>
+            </Path.Data>
+        </Path>
+
+        <Path Fill="WhiteSmoke" Margin="5" Canvas.Top="10" Canvas.Left="10" Name="estrellasPequenhas" Opacity="0.2">
+            <Path.Data>
+                <GeometryGroup>
+                    <EllipseGeometry Center="1000,40" RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    <EllipseGeometry Center="1200,50" RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    <EllipseGeometry Center="600,400" RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    <!--3 Mas-->
+                    <EllipseGeometry Center="1000,500" RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    <EllipseGeometry Center="800,150" RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    <EllipseGeometry Center="150,400" RadiusX="5" RadiusY="5"></EllipseGeometry>
+                </GeometryGroup>
+            </Path.Data>
+        </Path>
+
+        <Image Source="ms-appx:///Assets/naves.png" Width="150" Canvas.Top="550" Canvas.Left="{x:Bind viewModel.PosicionX, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="{x:Bind viewModel.Grid_KeyDown, Mode=OneWay}" KeyUp="{x:Bind viewModel.Grid_KeyUp, Mode=OneWay}"/>
     </Canvas>
 </Page>
