@@ -48,7 +48,6 @@
                     <EllipseGeometry Center="300,50" RadiusX="10" RadiusY="10"></EllipseGeometry>
                     <EllipseGeometry Center="1000,180" RadiusX="10" RadiusY="10"></EllipseGeometry>
                     <EllipseGeometry Center="400,300" RadiusX="10" RadiusY="10"></EllipseGeometry>
-                    <!--3 Mas-->
                     <EllipseGeometry Center="200,150" RadiusX="10" RadiusY="10"></EllipseGeometry>
                     <EllipseGeometry Center="800,400" RadiusX="10" RadiusY="10"></EllipseGeometry>
                     <EllipseGeometry Center="600,190" RadiusX="10" RadiusY="10"></EllipseGeometry>
@@ -62,7 +61,6 @@
                     <EllipseGeometry Center="50,100" RadiusX="8" RadiusY="8"></EllipseGeometry>
                     <EllipseGeometry Center="1200,300" RadiusX="8" RadiusY="8"></EllipseGeometry>
                     <EllipseGeometry Center="800,250" RadiusX="8" RadiusY="8"></EllipseGeometry>
-                    <!--3 Mas-->
                     <EllipseGeometry Center="1100,120" RadiusX="8" RadiusY="8"></EllipseGeometry>
                     <EllipseGeometry Center="1200,600" RadiusX="8" RadiusY="8"></EllipseGeometry>
                     <EllipseGeometry Center="650,15" RadiusX="8" RadiusY="8"></EllipseGeometry>
@@ -76,7 +74,6 @@
                     <EllipseGeometry Center="1000,40" RadiusX="5" RadiusY="5"></EllipseGeometry>
                     <EllipseGeometry Center="1200,50" RadiusX="5" RadiusY="5"></EllipseGeometry>
                     <EllipseGeometry Center="600,400" RadiusX="5" RadiusY="5"></EllipseGeometry>
-                    <!--3 Mas-->
                     <EllipseGeometry Center="1000,500" RadiusX="5" RadiusY="5"></EllipseGeometry>
                     <EllipseGeometry Center="800,150" RadiusX="5" RadiusY="5"></EllipseGeometry>
                     <EllipseGeometry Center="150,400" RadiusX="5" RadiusY="5"></EllipseGeometry>
