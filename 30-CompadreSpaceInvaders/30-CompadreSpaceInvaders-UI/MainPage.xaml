@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="_30_CompadreSpaceInvaders_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_30_CompadreSpaceInvaders_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Canvas Background="Black" x:Name="canvas">
+        <Image Source="/Assets/nave.gif" Width="125" Height="125" Canvas.Top="450"></Image>
+    </Canvas>
+</Page>
