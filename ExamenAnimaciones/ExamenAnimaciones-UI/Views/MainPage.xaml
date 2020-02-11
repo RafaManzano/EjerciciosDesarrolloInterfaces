@@ -1,0 +1,140 @@
+﻿<Page
+    x:Class="ExamenAnimaciones_UI.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExamenAnimaciones_UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:vm="using:ExamenAnimaciones_UI.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <vm:MainPageVM></vm:MainPageVM>
+    </Page.DataContext>
+
+    <RelativePanel>
+        <RelativePanel.Resources>
+            <Storyboard x:Name="progressBar0">
+                <DoubleAnimation x:Name="animacionEjeX" Storyboard.TargetName="humedad0"
+                             Storyboard.TargetProperty="Value"
+                             From="0"
+                             To="{Binding CiudadConPredicciones.Predicciones[0].humedad}"
+                             Duration="0:0:3"
+                             EnableDependentAnimation="True">
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="progressBar1">
+                <DoubleAnimation Storyboard.TargetName="humedad1"
+                             Storyboard.TargetProperty="Value"
+                             From="0"
+                             To="{Binding CiudadConPredicciones.Predicciones[1].humedad}"
+                             Duration="0:0:3"
+                             EnableDependentAnimation="True">
+                </DoubleAnimation>
+            </Storyboard>
+            <Storyboard x:Name="progressBar2">
+                <DoubleAnimation Storyboard.TargetName="humedad2"
+                             Storyboard.TargetProperty="Value"
+                             From="0"
+                             To="{Binding CiudadConPredicciones.Predicciones[2].humedad}"
+                             Duration="0:0:3"
+                             EnableDependentAnimation="True">
+                </DoubleAnimation>
+            </Storyboard>
+
+            <Storyboard x:Name="imagen0x">
+                <DoubleAnimation Storyboard.TargetName="paraimagen0"
+                Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                From="0"
+                To="0.8" Duration="0:0:2" />
+            </Storyboard>
+            <Storyboard x:Name="imagen0y">
+                <DoubleAnimation Storyboard.TargetName="paraimagen0"
+                Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                From="0"
+                To="0.8" Duration="0:0:2" />
+            </Storyboard>
+
+            <Storyboard x:Name="imagen1x">
+                <DoubleAnimation Storyboard.TargetName="paraimagen1"
+                Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                From="0"
+                To="0.8" Duration="0:0:2" />
+            </Storyboard>
+            <Storyboard x:Name="imagen1y">
+                <DoubleAnimation Storyboard.TargetName="paraimagen1"
+                Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                From="0"
+                To="0.8" Duration="0:0:2" />
+            </Storyboard>
+
+            <Storyboard x:Name="imagen2x">
+                <DoubleAnimation Storyboard.TargetName="paraimagen2"
+                Storyboard.TargetProperty="(ScaleTransform.ScaleX)"
+                From="0"
+                To="0.8" Duration="0:0:2" />
+            </Storyboard>
+            <Storyboard x:Name="imagen2y">
+                <DoubleAnimation Storyboard.TargetName="paraimagen2"
+                Storyboard.TargetProperty="(ScaleTransform.ScaleY)"
+                From="0"
+                To="0.8" Duration="0:0:2" />
+            </Storyboard>
+        </RelativePanel.Resources>
+        
+        
+        <TextBlock FontSize="30" Name="texto">CIUDADES</TextBlock>
+        <TextBox FontSize="20" Name="buscar" RelativePanel.Below="texto" Width="200" Text="{Binding TextoBuscado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <AppBarButton Icon="Refresh" RelativePanel.RightOf="buscar" Label="Refresh" RelativePanel.AlignTopWith="buscar" Margin="-5" Command="{Binding RecargarComando}"></AppBarButton>
+        <ListView Name="listView" SelectionChanged="ListView_SelectionChanged" RelativePanel.AlignLeftWithPanel="True" RelativePanel.Below="buscar" ItemsSource="{Binding ListadoCiudadesFiltrada, Mode=TwoWay}" SelectedItem="{Binding CiudadConPredicciones,Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="n" Text="{Binding Path=NombreCiudad}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock FontSize="30" Name="NombreCiudad" RelativePanel.RightOf="listView" RelativePanel.AlignTopWith="listView" Text="{Binding CiudadConPredicciones.NombreCiudad}"></TextBlock>
+
+        <!--Mañana-->
+        <TextBlock FontSize="20" RelativePanel.RightOf="listView" Name="manana0" RelativePanel.Below="NombreCiudad">MAÑANA</TextBlock>
+        <Image Width="100" Height="100" RelativePanel.RightOf="listView" Name="pronostico0" RelativePanel.Below="manana0" Source="{Binding CiudadConPredicciones.Predicciones[0].pronostico, Mode=TwoWay}">
+            <Image.RenderTransform>
+                <ScaleTransform x:Name="paraimagen0" 
+                    ScaleX="1" ScaleY="1"  />
+            </Image.RenderTransform>
+        </Image>
+        <!--<TextBlock RelativePanel.RightOf="listView" Name="humedad" RelativePanel.Below="pronostico" Text="{Binding CiudadConPredicciones.Predicciones[0].humedad, Mode=TwoWay}"></TextBlock>-->
+        <ProgressBar RelativePanel.RightOf="listView" Name="humedad0" RelativePanel.Below="pronostico0" Width="200" Height="25"></ProgressBar>
+        <TextBlock RelativePanel.RightOf="listView" Name="maxima0" RelativePanel.Below="humedad0" Text="{Binding CiudadConPredicciones.Predicciones[0].temperaturaMaxima, Mode=TwoWay}"></TextBlock>
+        <TextBlock RelativePanel.RightOf="listView" Name="minima0" RelativePanel.Below="maxima0" Text="{Binding CiudadConPredicciones.Predicciones[0].temperaturaMinima, Mode=TwoWay}"></TextBlock>
+
+        <!--Pasado-->
+        <TextBlock FontSize="20" RelativePanel.RightOf="humedad0" Name="manana1" RelativePanel.Below="NombreCiudad" Margin="10,0,0,0">PASADO</TextBlock>
+        <Image Width="100" Height="100" RelativePanel.RightOf="humedad0" Name="pronostico1" RelativePanel.Below="manana1" Source="{Binding CiudadConPredicciones.Predicciones[1].pronostico, Mode=TwoWay}" Margin="10,0,0,0">
+            <Image.RenderTransform>
+                <ScaleTransform x:Name="paraimagen1" 
+                    ScaleX="1" ScaleY="1"  />
+            </Image.RenderTransform>
+        </Image>
+        <!--<TextBlock RelativePanel.RightOf="listView" Name="humedad" RelativePanel.Below="pronostico" Text="{Binding CiudadConPredicciones.Predicciones[0].humedad, Mode=TwoWay}"></TextBlock>-->
+        <ProgressBar RelativePanel.RightOf="humedad0" Name="humedad1" RelativePanel.Below="pronostico1" Width="200" Height="25" Margin="10,0,0,0"></ProgressBar>
+        <TextBlock RelativePanel.RightOf="humedad0" Name="maxima1" RelativePanel.Below="humedad1" Text="{Binding CiudadConPredicciones.Predicciones[1].temperaturaMaxima, Mode=TwoWay}" Margin="10,0,0,0"></TextBlock>
+        <TextBlock RelativePanel.RightOf="humedad0" Name="minima1" RelativePanel.Below="maxima1" Text="{Binding CiudadConPredicciones.Predicciones[1].temperaturaMinima, Mode=TwoWay}" Margin="10,0,0,0"></TextBlock>
+        
+        <!--Al otro-->
+        <TextBlock FontSize="20" RelativePanel.RightOf="humedad1" Name="manana2" RelativePanel.Below="NombreCiudad" Margin="10,0,0,0">AL OTRO</TextBlock>
+        <Image Width="100" Height="100" RelativePanel.RightOf="humedad1" Name="pronostico2" RelativePanel.Below="manana2" Source="{Binding CiudadConPredicciones.Predicciones[2].pronostico, Mode=TwoWay}" Margin="10,0,0,0">
+            <Image.RenderTransform>
+                <ScaleTransform x:Name="paraimagen2" 
+                    ScaleX="1" ScaleY="1"  />
+            </Image.RenderTransform>
+        </Image>
+        <!--<TextBlock RelativePanel.RightOf="listView" Name="humedad" RelativePanel.Below="pronostico" Text="{Binding CiudadConPredicciones.Predicciones[0].humedad, Mode=TwoWay}"></TextBlock>-->
+        <ProgressBar RelativePanel.RightOf="humedad1" Name="humedad2" RelativePanel.Below="pronostico2" Width="200" Height="25" Margin="10,0,0,0"></ProgressBar>
+        <TextBlock RelativePanel.RightOf="humedad1" Name="maxima2" RelativePanel.Below="humedad2" Text="{Binding CiudadConPredicciones.Predicciones[2].temperaturaMaxima, Mode=TwoWay}" Margin="10,0,0,0"></TextBlock>
+        <TextBlock RelativePanel.RightOf="humedad1" Name="minima2" RelativePanel.Below="maxima2" Text="{Binding CiudadConPredicciones.Predicciones[2].temperaturaMinima, Mode=TwoWay}" Margin="10,0,0,0"></TextBlock>
+    </RelativePanel>
+</Page>
