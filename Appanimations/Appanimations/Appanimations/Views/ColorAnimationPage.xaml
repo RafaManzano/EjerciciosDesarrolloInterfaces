@@ -1,0 +1,66 @@
+﻿<base:PageBase
+    x:Class="Appanimations.Views.ColorAnimationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Appanimations.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:base="using:Appanimations.Views.Base"
+    DataContext="{Binding ColorAnimationPageViewModel, Source={StaticResource Locator}}"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:media="using:Microsoft.Xaml.Interactions.Media">
+
+    <base:PageBase.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo></CommonNavigationTransitionInfo>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </base:PageBase.Transitions>
+    
+    <base:PageBase.Resources>
+        <Storyboard x:Key="storyboard3">
+            <ColorAnimation Storyboard.TargetName="colors" Storyboard.TargetProperty="Color"
+                            From="Red" To="Yellow" Duration="0:0:2" AutoReverse="True" RepeatBehavior="Forever"/>
+        </Storyboard>
+    </base:PageBase.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal">
+            <AppBarButton Background="Gray" Icon="Back">
+                <i:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="Appanimations.Views.MainPage"/>
+                    </core:EventTriggerBehavior>
+                </i:Interaction.Behaviors>
+            </AppBarButton>
+
+            <TextBlock FontSize="50">Color Animation</TextBlock>
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Ellipse x:Name="ellipse" Height="100" Width="100" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.Fill>
+                    <SolidColorBrush x:Name="colors" Color="Red"></SolidColorBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <i:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Loaded">
+                    <media:ControlStoryboardAction ControlStoryboardOption="Play" Storyboard="{StaticResource storyboard3}"/>
+                </core:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+        </Grid>
+    </Grid>
+</base:PageBase>
