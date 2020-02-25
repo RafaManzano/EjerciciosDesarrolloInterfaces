@@ -23,7 +23,7 @@
                 </ListView.ItemTemplate>
          </ListView>
         <StackLayout Orientation="Horizontal">
-            <Button x:Name="anhadir" Text="Anhadir"></Button>
+            <Button x:Name="anhadir" Text="Anhadir" Command="{Binding AnhadirCommand}"></Button>
             <Button x:Name="borrar" Text="Borrar"></Button>
         </StackLayout>
      </StackLayout>

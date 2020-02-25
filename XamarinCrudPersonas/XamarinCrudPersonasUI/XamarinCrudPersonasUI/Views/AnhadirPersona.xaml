@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinCrudPersonasUI.Views.AnhadirPersona">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!--Todos los labels-->
+            <Label Grid.Column="0" Text="Nombre"/>
+            <Label Grid.Column="1" Text="Apellidos"/>
+            <Label Grid.Column="2" Text="Direccion"/>
+            <Label Grid.Column="3" Text="Fecha de Nacimiento"/>
+            <Label Grid.Column="4" Text="Foto"/>
+            <Label Grid.Column="5" Text="Telefono"/>
+            <Label Grid.Column="6" Text="IDDepartamento"/>
+
+            <!--Todos los entrys, de momento se quedan como entry aquellos que deberian no serlo-->
+            <Entry Grid.Column="0" Grid.Row="0"/>
+            <Entry Grid.Column="1" Grid.Row="1"/>
+            <Entry Grid.Column="2" Grid.Row="2"/>
+            <Entry Grid.Column="3" Grid.Row="3"/>
+            <Entry Grid.Column="4" Grid.Row="4"/>
+            <Entry Grid.Column="5" Grid.Row="5"/>
+            <Entry Grid.Column="6" Grid.Row="6"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

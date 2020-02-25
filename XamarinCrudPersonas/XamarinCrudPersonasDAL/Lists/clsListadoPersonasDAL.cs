@@ -1,11 +1,10 @@
-﻿using _30_XamarinCrudPersonas_DAL.Connection;
-using _30_XamarinCrudPersonas_ENTITIES;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using XamarinCrudPersonasDAL.Connection;
+using XamarinCrudPersonasENTITIES;
 
 namespace _30_XamarinCrudPersonas_DAL.Lists
 {
