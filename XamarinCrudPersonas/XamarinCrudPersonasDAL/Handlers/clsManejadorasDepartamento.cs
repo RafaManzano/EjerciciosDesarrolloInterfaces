@@ -21,10 +21,11 @@ namespace XamarinCrudPersonasDAL.Handlers
             clsDepartamento departamento = new clsDepartamento();
             HttpClient client = new HttpClient();
             HttpResponseMessage responseMessage = new HttpResponseMessage();
+            clsDepartamento dep = new clsDepartamento();
 
             try
             {
-                responseMessage = await client.GetAsync(clsMyConnection.getUriBase() + "Departamento");
+                responseMessage = await client.GetAsync(clsMyConnection.getUriBase() + "Departamento/" + id);
             }
             catch (Exception ex)
             {
@@ -35,6 +36,9 @@ namespace XamarinCrudPersonasDAL.Handlers
             {
                 string d = await responseMessage.Content.ReadAsStringAsync();
                 departamento = JsonConvert.DeserializeObject<clsDepartamento>(d);
+                //dep.ID = departamento.ID;
+                //dep.Nombre = departamento.Nombre;
+                //departamento.ID;
             }
 
             return departamento;

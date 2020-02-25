@@ -92,7 +92,7 @@ namespace XamarinCrudPersonasUI.ModelViews
                     try
                     {
 
-                        if (await capaBL.actualizarPersona(personaModificada)==1)
+                        if (await capaBL.actualizarPersona(personaModificada) ==1)
                         {
                             displayExito();
                         }
@@ -123,14 +123,16 @@ namespace XamarinCrudPersonasUI.ModelViews
             bool encontrado = false;
             try
             {
-                departamentoAux = await capaBL.obtenerDepartamentoPorID(personaModificada.IDDepartamento);
+                //departamentoAux = await capaBL.obtenerDepartamentoPorID(personaModificada.IDDepartamento);
                 listadoDepartamento = new ObservableCollection<clsDepartamento>(await listBL.listadoDepartamentos());
-                NotifyPropertyChanged("ListadoDepartamentos");
+                NotifyPropertyChanged("ListadoDepartamento");
                 for (int i = 0; i < listadoDepartamento.Count && !encontrado; i++)
                 {
-                    if (departamentoAux.ID == listadoDepartamento[i].ID)
+                    if (personaModificada.IDDepartamento == listadoDepartamento[i].ID)
                     {
                         Departamento = listadoDepartamento[i];
+                        personaModificada.IDDepartamento = Departamento.ID;
+                        NotifyPropertyChanged("PersonaModificada");
                         encontrado = true;
                     }
                 }

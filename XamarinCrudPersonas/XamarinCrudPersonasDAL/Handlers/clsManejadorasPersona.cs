@@ -84,7 +84,7 @@ namespace XamarinCrudPersonasDAL.Handlers
             HttpClient client = new HttpClient();
             String json;
             HttpContent body;
-            Uri uri = new Uri(clsMyConnection.getUriBase() + "Persona");
+            Uri uri = new Uri(clsMyConnection.getUriBase() + "Persona/" + persona.IDPersona);
             int actualizado = 0;
 
             HttpResponseMessage responseMessage = new HttpResponseMessage();
@@ -94,16 +94,17 @@ namespace XamarinCrudPersonasDAL.Handlers
                 json = JsonConvert.SerializeObject(persona);
                 body = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
                 responseMessage = await client.PutAsync(uri, body);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    actualizado = 1;
+                }
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                actualizado = 1;
-            }
+            
 
             return actualizado;
 
