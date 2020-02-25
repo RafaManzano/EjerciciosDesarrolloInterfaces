@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinCrudPersonasENTITIES;
 using XamarinCrudPersonasUI.ModelViews;
 
 namespace XamarinCrudPersonasUI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AnhadirPersona : ContentPage
+    public partial class EditarPersona : ContentPage
     {
-        public AnhadirPersona()
+        public EditarPersona(clsPersona persona)
         {
             InitializeComponent();
-            BindingContext = new AnhadirPersonaVM();
+            BindingContext = new EditarPersonaVM(persona);
         }
     }
 }

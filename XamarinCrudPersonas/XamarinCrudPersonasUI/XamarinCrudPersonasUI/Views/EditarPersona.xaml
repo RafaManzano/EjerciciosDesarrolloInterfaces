@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinCrudPersonasUI.Views.EditarPersona">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Editar Persona"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--Todos los labels-->
+                <Label Grid.Column="0" Grid.Row="0" Text="Nombre"/>
+                <Label Grid.Column="0" Grid.Row="1" Text="Apellidos"/>
+                <Label Grid.Column="0" Grid.Row="2" Text="Direccion"/>
+                <Label Grid.Column="0" Grid.Row="3" Text="Fecha de Nacimiento"/>
+                <Label Grid.Column="0" Grid.Row="4" Text="Telefono"/>
+                <Label Grid.Column="0" Grid.Row="5" Text="IDDepartamento"/>
+
+                <!--Campos-->
+                <Entry Grid.Column="1" Grid.Row="0" Text="{Binding PersonaModificada.Nombre, Mode=TwoWay}"/>
+                <Entry Grid.Column="1" Grid.Row="1" Text="{Binding PersonaModificada.Apellidos, Mode=TwoWay}"/>
+                <Entry Grid.Column="1" Grid.Row="2" Text="{Binding PersonaModificada.Direccion, Mode=TwoWay}"/>
+                <DatePicker Grid.Column="1" Grid.Row="3" Date="{Binding PersonaModificada.FechaNacimieinto, Mode=TwoWay}"/>
+                <Entry Grid.Column="1" Grid.Row="4" Text="{Binding PersonaModificada.Telefono, Mode=TwoWay}"/>
+                <Picker Grid.Column="1" Grid.Row="5"  ItemsSource="{Binding ListadoDepartamento}" ItemDisplayBinding="{Binding Nombre, Mode=TwoWay}"  SelectedItem="{Binding Departamento, Mode=TwoWay}"/>
+            </Grid>
+            <Button Text="Guardar" Command="{Binding EditarCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -8,7 +8,7 @@ namespace XamarinCrudPersonasDAL.Connection
     {
         public static string getUriBase()
         {
-            String uriBase = "https://crudtoflamaapi.azurewebsites.net/api";
+            String uriBase = "https://crudtoflamaapi.azurewebsites.net/api/";
             return uriBase;
         }
     }
