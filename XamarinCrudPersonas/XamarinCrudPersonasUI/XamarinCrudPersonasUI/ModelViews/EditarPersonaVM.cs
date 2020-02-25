@@ -23,15 +23,15 @@ namespace XamarinCrudPersonasUI.ModelViews
         #region Constructores
         public EditarPersonaVM()
         {
-            cargarListadoDepartamentos();
             personaModificada = new clsPersona();
+            cargarListadoDepartamentos();
             EditarCommand = new DelegateCommand(Editar);
         }
 
         public EditarPersonaVM(clsPersona persona)
         {
-            cargarListadoDepartamentos();
             this.personaModificada = persona;
+            cargarListadoDepartamentos();
             EditarCommand = new DelegateCommand(Editar);
         }
         #endregion
