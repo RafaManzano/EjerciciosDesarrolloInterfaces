@@ -1,11 +1,11 @@
-﻿using _30_XamarinCrudPersonas_DAL.Lists;
-using _30_XamarinCrudPersonas_ENTITIES;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using XamarinCrudPersonasDAL.Lists;
+using XamarinCrudPersonasENTITIES;
 
-namespace _30_XamarinCrudPersonas_BL.Lists
+namespace XamarinCrudPersonasBL.Lists
 {
     public class clsListadoPersonaBL
     {
@@ -15,7 +15,7 @@ namespace _30_XamarinCrudPersonas_BL.Lists
         /// <returns>El listado de personas List<clsPersona></returns>
         public async Task<List<clsPersona>> listadoPersonas()
         {
-            clsListadoPersonasDAL listBBDD = new clsListadoPersonasDAL();
+            clsListadoPersonaDAL listBBDD = new clsListadoPersonaDAL();
             Task<List<clsPersona>> l = listBBDD.listadoPersona();
             List<clsPersona> listado = await listBBDD.listadoPersona();
             return listado;

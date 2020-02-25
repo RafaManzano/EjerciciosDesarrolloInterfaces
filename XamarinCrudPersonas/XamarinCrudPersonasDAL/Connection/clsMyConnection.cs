@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _30_XamarinCrudPersonas_DAL.Connection
+namespace XamarinCrudPersonasDAL.Connection
 {
     public class clsMyConnection
     {

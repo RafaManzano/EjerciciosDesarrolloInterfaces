@@ -2,12 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>_30_XamarinCrudPersonas_BL</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\30_XamarinCrudPersonas_DAL\XamarinCrudPersonasDAL.csproj" />
-    <ProjectReference Include="..\30_XamarinCrudPersonas_ENTITIES\XamarinCrudPersonasENTITIES.csproj" />
+    <ProjectReference Include="..\XamarinCrudPersonasDAL\XamarinCrudPersonasDAL.csproj" />
+    <ProjectReference Include="..\XamarinCrudPersonasENTITIES\XamarinCrudPersonasENTITIES.csproj" />
   </ItemGroup>
 
 </Project>

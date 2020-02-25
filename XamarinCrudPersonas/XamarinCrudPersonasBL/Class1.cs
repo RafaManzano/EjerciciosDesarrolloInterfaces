@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _30_XamarinCrudPersonas_BL
+namespace XamarinCrudPersonasBL
 {
     public class Class1
     {

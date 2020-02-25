@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _30_XamarinCrudPersonas_DAL.Handlers
+namespace XamarinCrudPersonasDAL.Handlers
 {
     public class clsManejadoras
     {

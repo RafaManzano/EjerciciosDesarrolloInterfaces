@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _30_XamarinCrudPersonas_ENTITIES
+namespace XamarinCrudPersonasENTITIES
 {
     public class Class1
     {
