@@ -33,7 +33,7 @@
             <Entry Grid.Column="1" Grid.Row="2" Text="{Binding PersonaAnhadida.Direccion, Mode=TwoWay}"/>
             <DatePicker Grid.Column="1" Grid.Row="3" Date="{Binding PersonaAnhadida.FechaNacimieinto, Mode=TwoWay}"/>
             <Entry Grid.Column="1" Grid.Row="4" Text="{Binding PersonaAnhadida.Telefono, Mode=TwoWay}"/>
-            <Picker Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListadoDepartamentos}" ItemDisplayBinding="{Binding Nombre, Mode=TwoWay}"  SelectedItem="{Binding DepartamentoSeleccionado, Mode=TwoWay}"/>
+            <Picker Grid.Column="1" Grid.Row="5" ItemsSource="{Binding ListadoDepartamentos}" ItemDisplayBinding="{Binding Nombre}"  SelectedItem="{Binding DepartamentoSeleccionado, Mode=TwoWay}"/>
         </Grid>
         <Button Text="Guardar" Command="{Binding GuardarCommand}"></Button>
     </StackLayout>
